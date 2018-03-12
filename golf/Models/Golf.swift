@@ -74,7 +74,6 @@ class Golf : NSObject {
         endPoints?.getEvent(eventID: chosenGame, completion: { json in
             let data = json["data"]
             if data.error?.code == nil {
-                print(data)
                 self.event = Event(json: data)
                 checkCalculatedReturns()
                 
@@ -135,17 +134,7 @@ class Golf : NSObject {
                     total += eachRound
                     roundsTaken += 1
                     
-                    let parRound = parDetails[0]
-                    par += parRound!
-//                    if let tryAgain = course.holes[0] {
-//                        print("par:\(tryAgain.par)")
-//                    }
-//                    for (parRound, each) in course.holes {
-//                        if parRound == round {
-//                            par += each.par
-//                        }
-//                    }
-                    
+                    par += (parDetails[round+1])!                    
                 }
                 let score = total - par
                 let thru = roundsTaken

@@ -82,7 +82,13 @@ extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row > 0 else { return }
+        
+        // set chosen row / player ID
+        // golf.?selectedPlayerRow()
+        performSegue(withIdentifier: "showPlayerDetail", sender: nil)
+    }
 }
 
 class LeaderBoardCell: UITableViewCell {
