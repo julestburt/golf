@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8412A3B520565B810076AE93 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412A3B420565B810076AE93 /* Alamofire.framework */; };
-		8412A3B720565B8E0076AE93 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */; };
+		844865B12056836E0076B976 /* Golf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B02056836E0076B976 /* Golf.swift */; };
+		844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
+		844865BA2056D6BF0076B976 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
+		8495C1F72056737C004BC2F1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F62056737C004BC2F1 /* Alamofire.framework */; };
+		8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */; };
+		84C11940205670560003D0B6 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoints.swift */; };
 		84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB62056164700DB33DA /* AppDelegate.swift */; };
-		84FFADB92056164700DB33DA /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* Leaderboard.swift */; };
+		84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderboardVC.swift */; };
 		84FFADBC2056164700DB33DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
 		84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBD2056164700DB33DA /* Assets.xcassets */; };
 		84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */; };
@@ -29,11 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8412A3B420565B810076AE93 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		844865B02056836E0076B976 /* Golf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golf.swift; sourceTree = "<group>"; };
+		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
+		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
+		8495C1F62056737C004BC2F1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		84C1193F205670560003D0B6 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		84FFADB32056164700DB33DA /* golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FFADB62056164700DB33DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84FFADB82056164700DB33DA /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		84FFADB82056164700DB33DA /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
 		84FFADBB2056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84FFADBD2056164700DB33DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FFADC02056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,8 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8412A3B720565B8E0076AE93 /* SwiftyJSON.framework in Frameworks */,
-				8412A3B520565B810076AE93 /* Alamofire.framework in Frameworks */,
+				8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */,
+				8495C1F72056737C004BC2F1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +72,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		844865B42056D6240076B976 /* AppControl */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADB62056164700DB33DA /* AppDelegate.swift */,
+				84FFADC22056164700DB33DA /* Info.plist */,
+			);
+			path = AppControl;
+			sourceTree = "<group>";
+		};
+		844865B52056D6340076B976 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADBA2056164700DB33DA /* Main.storyboard */,
+				84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		844865B62056D6530076B976 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADD620564CA000DB33DA /* APIService.swift */,
+				84C1193F205670560003D0B6 /* EndPoints.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		844865B72056D6640076B976 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADB82056164700DB33DA /* LeaderboardVC.swift */,
+				844865B22056839E0076B976 /* LeaderBoardPresenter.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		844865B82056D68B0076B976 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				844865B02056836E0076B976 /* Golf.swift */,
+				844865B92056D6BF0076B976 /* GolfData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		84FFADAA2056164600DB33DA = {
 			isa = PBXGroup;
 			children = (
 				84FFADB52056164700DB33DA /* golf */,
-				8412A3B420565B810076AE93 /* Alamofire.framework */,
-				8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */,
+				8495C1F62056737C004BC2F1 /* Alamofire.framework */,
+				8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
 				84FFADB42056164700DB33DA /* Products */,
 			);
@@ -87,13 +140,12 @@
 		84FFADB52056164700DB33DA /* golf */ = {
 			isa = PBXGroup;
 			children = (
-				84FFADB62056164700DB33DA /* AppDelegate.swift */,
-				84FFADB82056164700DB33DA /* Leaderboard.swift */,
-				84FFADD620564CA000DB33DA /* APIService.swift */,
-				84FFADBA2056164700DB33DA /* Main.storyboard */,
+				844865B42056D6240076B976 /* AppControl */,
+				844865B52056D6340076B976 /* Storyboards */,
+				844865B62056D6530076B976 /* Workers */,
+				844865B82056D68B0076B976 /* Models */,
+				844865B72056D6640076B976 /* ViewControllers */,
 				84FFADBD2056164700DB33DA /* Assets.xcassets */,
-				84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */,
-				84FFADC22056164700DB33DA /* Info.plist */,
 			);
 			path = golf;
 			sourceTree = "<group>";
@@ -117,6 +169,7 @@
 				84FFADAF2056164600DB33DA /* Sources */,
 				84FFADB02056164600DB33DA /* Frameworks */,
 				84FFADB12056164600DB33DA /* Resources */,
+				8495C1FA205673BA004BC2F1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -205,13 +258,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8495C1FA205673BA004BC2F1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84FFADAF2056164600DB33DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FFADB92056164700DB33DA /* Leaderboard.swift in Sources */,
+				844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */,
+				84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */,
 				84FFADD720564CA000DB33DA /* APIService.swift in Sources */,
+				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
+				844865B12056836E0076B976 /* Golf.swift in Sources */,
+				84C11940205670560003D0B6 /* EndPoints.swift in Sources */,
 				84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +446,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = golf/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,7 +466,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = golf/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";

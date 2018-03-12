@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LeaderboardVC: UIViewController {
     
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var loadingScreen: UIView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     
     var leaderboardData:[LeaderBoardEntry]? = nil
     
@@ -27,7 +31,10 @@ class LeaderboardVC: UIViewController {
         golf = Golf.data
         golf?.presenter = presenter
         
-        golf?.getLeaderBoard()
+//        golf?.getLeaderBoard()  // getting the pre-build LeaderBoard
+        
+        golf?.getCalculatedLeaderBoard()    // getting the leaderboard from various endpoints
+        activity.startAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,13 +46,17 @@ class LeaderboardVC: UIViewController {
 extension LeaderboardVC : LeaderBoardAction {
     func present(leaderboard: [LeaderBoardEntry]) {
         leaderboardData = leaderboard
+        UIView.animate(withDuration: 0.25) {
+            self.loadingScreen.alpha = 0
+            self.activity.stopAnimating()
+        }
         table.reloadData()
     }
 }
 
 extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaderboardData != nil ? leaderboardData!.count : 0
+        return leaderboardData != nil ? leaderboardData!.count + 1 : 0
     }
     
 
@@ -55,8 +66,13 @@ extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell? = nil
-        if let leaderCell = table.dequeueReusableCell(withIdentifier: "LeaderBoardCell") as? LeaderBoardCell,
-            let leaderEntry = leaderboardData?[indexPath.row] {
+        
+        if indexPath.row == 0 {
+            if let headerCell = table.dequeueReusableCell(withIdentifier: "LeaderHeaderCell") {
+                cell = headerCell
+            }
+        } else if let leaderCell = table.dequeueReusableCell(withIdentifier: "LeaderBoardCell") as? LeaderBoardCell,
+            let leaderEntry = leaderboardData?[indexPath.row - 1] {
             leaderCell.entryDetails(pos: leaderEntry.pos, player: leaderEntry.playerName, tot: leaderEntry.tot, score: leaderEntry.score, thru:leaderEntry.thru)
             cell = leaderCell
         }
@@ -97,65 +113,5 @@ class LeaderBoardCell: UITableViewCell {
     
 }
 
-class Golf {
-    
-    static let data = Golf()
-    var presenter:LeaderBoardPresenter?
-    
-    let chosenGame = 1000
-    
-    func getLeaderBoard() {
-        // get results from somewhere
-        leaderBoardReadyForDisplay()
-    }
-    
-    var leaderBoard:[PlayerResults]? = nil
-    
-    func leaderBoardReadyForDisplay() {
-        let player = PlayerResults()
-        if let leader = leaderBoard {
-            presenter?.showLeader(leader)
-        }
-    }
-}
 
-class PlayerResults {
-    
-    var score:Int
-    
-    init() {
-        score = 100
-    }
-}
 
-struct LeaderBoardEntry {
-    let pos:String
-    let playerName:String
-    let tot:String
-    let score:String
-    let thru:String
-}
-
-protocol LeaderBoardAction:class {
-    func present(leaderboard:[LeaderBoardEntry])
-}
-
-class LeaderBoardPresenter: NSObject {
-    
-    var delegate:LeaderBoardAction? = nil
-    
-    init(delegate:LeaderBoardAction) {
-        self.delegate = delegate
-    }
-    
-    func showLeader(_ leaderboard:[PlayerResults]) {
-        var leaderboard:[LeaderBoardEntry] = []
-        leaderboard.append(LeaderBoardEntry(pos: "1", playerName: "Jack Nicklaus", tot: "46", score: "-1", thru: "12"))
-        leaderboard.append(LeaderBoardEntry(pos: "T2", playerName: "Seve Ballesteros", tot: "40", score: "EVEN", thru: "10"))
-        leaderboard.append(LeaderBoardEntry(pos: "T2", playerName: "Nick Faldo", tot: "36", score: "EVEN", thru: "9"))
-        leaderboard.append(LeaderBoardEntry(pos: "3", playerName: "Greg Norman", tot: "73", score: "+1", thru: "F"))
-        leaderboard.append(LeaderBoardEntry(pos: "4", playerName: "Tom Kite", tot: "6", score: "+2", thru: "1"))
-        leaderboard.append(LeaderBoardEntry(pos: "5", playerName: "Mike Weir", tot: "18", score: "+3", thru: "4"))
-        delegate?.present(leaderboard: leaderboard)
-    }
-}
