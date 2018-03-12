@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8412A3B520565B810076AE93 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412A3B420565B810076AE93 /* Alamofire.framework */; };
+		8412A3B720565B8E0076AE93 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */; };
 		84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB62056164700DB33DA /* AppDelegate.swift */; };
 		84FFADB92056164700DB33DA /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* Leaderboard.swift */; };
 		84FFADBC2056164700DB33DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8412A3B420565B810076AE93 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		84FFADB32056164700DB33DA /* golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FFADB62056164700DB33DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FFADB82056164700DB33DA /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8412A3B720565B8E0076AE93 /* SwiftyJSON.framework in Frameworks */,
+				8412A3B520565B810076AE93 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				84FFADB52056164700DB33DA /* golf */,
+				8412A3B420565B810076AE93 /* Alamofire.framework */,
+				8412A3B620565B8E0076AE93 /* SwiftyJSON.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
 				84FFADB42056164700DB33DA /* Products */,
 			);
@@ -359,6 +367,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = golf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
@@ -374,6 +386,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = golf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
