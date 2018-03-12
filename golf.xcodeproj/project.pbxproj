@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB62056164700DB33DA /* AppDelegate.swift */; };
+		84FFADB92056164700DB33DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* ViewController.swift */; };
+		84FFADBC2056164700DB33DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
+		84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBD2056164700DB33DA /* Assets.xcassets */; };
+		84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */; };
+		84FFADCC2056164700DB33DA /* golfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADCB2056164700DB33DA /* golfTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84FFADC82056164700DB33DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84FFADAB2056164600DB33DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84FFADB22056164600DB33DA;
+			remoteInfo = golf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84FFADB32056164700DB33DA /* golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FFADB62056164700DB33DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84FFADB82056164700DB33DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84FFADBB2056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84FFADBD2056164700DB33DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84FFADC02056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84FFADC22056164700DB33DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FFADC72056164700DB33DA /* golfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = golfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FFADCB2056164700DB33DA /* golfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golfTests.swift; sourceTree = "<group>"; };
+		84FFADCD2056164700DB33DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84FFADB02056164600DB33DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FFADC42056164700DB33DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84FFADAA2056164600DB33DA = {
+			isa = PBXGroup;
+			children = (
+				84FFADB52056164700DB33DA /* golf */,
+				84FFADCA2056164700DB33DA /* golfTests */,
+				84FFADB42056164700DB33DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84FFADB42056164700DB33DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADB32056164700DB33DA /* golf.app */,
+				84FFADC72056164700DB33DA /* golfTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84FFADB52056164700DB33DA /* golf */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADB62056164700DB33DA /* AppDelegate.swift */,
+				84FFADB82056164700DB33DA /* ViewController.swift */,
+				84FFADBA2056164700DB33DA /* Main.storyboard */,
+				84FFADBD2056164700DB33DA /* Assets.xcassets */,
+				84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */,
+				84FFADC22056164700DB33DA /* Info.plist */,
+			);
+			path = golf;
+			sourceTree = "<group>";
+		};
+		84FFADCA2056164700DB33DA /* golfTests */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADCB2056164700DB33DA /* golfTests.swift */,
+				84FFADCD2056164700DB33DA /* Info.plist */,
+			);
+			path = golfTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84FFADB22056164600DB33DA /* golf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FFADD02056164700DB33DA /* Build configuration list for PBXNativeTarget "golf" */;
+			buildPhases = (
+				84FFADAF2056164600DB33DA /* Sources */,
+				84FFADB02056164600DB33DA /* Frameworks */,
+				84FFADB12056164600DB33DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = golf;
+			productName = golf;
+			productReference = 84FFADB32056164700DB33DA /* golf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84FFADC62056164700DB33DA /* golfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FFADD32056164700DB33DA /* Build configuration list for PBXNativeTarget "golfTests" */;
+			buildPhases = (
+				84FFADC32056164700DB33DA /* Sources */,
+				84FFADC42056164700DB33DA /* Frameworks */,
+				84FFADC52056164700DB33DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84FFADC92056164700DB33DA /* PBXTargetDependency */,
+			);
+			name = golfTests;
+			productName = golfTests;
+			productReference = 84FFADC72056164700DB33DA /* golfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84FFADAB2056164600DB33DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "bethegame Inc.";
+				TargetAttributes = {
+					84FFADB22056164600DB33DA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					84FFADC62056164700DB33DA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 84FFADB22056164600DB33DA;
+					};
+				};
+			};
+			buildConfigurationList = 84FFADAE2056164600DB33DA /* Build configuration list for PBXProject "golf" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84FFADAA2056164600DB33DA;
+			productRefGroup = 84FFADB42056164700DB33DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84FFADB22056164600DB33DA /* golf */,
+				84FFADC62056164700DB33DA /* golfTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84FFADB12056164600DB33DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */,
+				84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */,
+				84FFADBC2056164700DB33DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FFADC52056164700DB33DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84FFADAF2056164600DB33DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FFADB92056164700DB33DA /* ViewController.swift in Sources */,
+				84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FFADC32056164700DB33DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FFADCC2056164700DB33DA /* golfTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84FFADC92056164700DB33DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84FFADB22056164600DB33DA /* golf */;
+			targetProxy = 84FFADC82056164700DB33DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84FFADBA2056164700DB33DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84FFADBB2056164700DB33DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84FFADC02056164700DB33DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84FFADCE2056164700DB33DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84FFADCF2056164700DB33DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84FFADD12056164700DB33DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				INFOPLIST_FILE = golf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84FFADD22056164700DB33DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				INFOPLIST_FILE = golf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84FFADD42056164700DB33DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				INFOPLIST_FILE = golfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
+			};
+			name = Debug;
+		};
+		84FFADD52056164700DB33DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
+				INFOPLIST_FILE = golfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84FFADAE2056164600DB33DA /* Build configuration list for PBXProject "golf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FFADCE2056164700DB33DA /* Debug */,
+				84FFADCF2056164700DB33DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84FFADD02056164700DB33DA /* Build configuration list for PBXNativeTarget "golf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FFADD12056164700DB33DA /* Debug */,
+				84FFADD22056164700DB33DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84FFADD32056164700DB33DA /* Build configuration list for PBXNativeTarget "golfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FFADD42056164700DB33DA /* Debug */,
+				84FFADD52056164700DB33DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84FFADAB2056164600DB33DA /* Project object */;
+}
