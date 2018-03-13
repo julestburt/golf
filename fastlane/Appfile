@@ -1,0 +1,8 @@
+app_identifier "com.bethegame.golf" # The bundle identifier of your app
+apple_id "jburt@me.com" # Your Apple email address
+
+itc_team_id "309648" # iTunes Connect Team ID
+team_id "ZU9YSQ22FQ" # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
