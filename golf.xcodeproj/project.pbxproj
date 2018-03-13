@@ -12,6 +12,9 @@
 		844865BA2056D6BF0076B976 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
 		8495C1F72056737C004BC2F1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F62056737C004BC2F1 /* Alamofire.framework */; };
 		8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */; };
+		849A984320573B8A005F2B1F /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 849A984220573B8A005F2B1F /* fastlane */; };
+		849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
+		849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
 		84C11940205670560003D0B6 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoints.swift */; };
 		84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB62056164700DB33DA /* AppDelegate.swift */; };
 		84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderboardVC.swift */; };
@@ -38,6 +41,9 @@
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
 		8495C1F62056737C004BC2F1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		849A984220573B8A005F2B1F /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
+		849A984420574EAA005F2B1F /* ScoreCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardVC.swift; sourceTree = "<group>"; };
+		849A984620575393005F2B1F /* ScoreCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardPresenter.swift; sourceTree = "<group>"; };
 		84C1193F205670560003D0B6 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		84FFADB32056164700DB33DA /* golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FFADB62056164700DB33DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 			children = (
 				84FFADB82056164700DB33DA /* LeaderboardVC.swift */,
 				844865B22056839E0076B976 /* LeaderBoardPresenter.swift */,
+				849A984420574EAA005F2B1F /* ScoreCardVC.swift */,
+				849A984620575393005F2B1F /* ScoreCardPresenter.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				84FFADB52056164700DB33DA /* golf */,
+				849A984220573B8A005F2B1F /* fastlane */,
 				8495C1F62056737C004BC2F1 /* Alamofire.framework */,
 				8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
@@ -141,10 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				844865B42056D6240076B976 /* AppControl */,
-				844865B52056D6340076B976 /* Storyboards */,
 				844865B62056D6530076B976 /* Workers */,
 				844865B82056D68B0076B976 /* Models */,
 				844865B72056D6640076B976 /* ViewControllers */,
+				844865B52056D6340076B976 /* Storyboards */,
 				84FFADBD2056164700DB33DA /* Assets.xcassets */,
 			);
 			path = golf;
@@ -210,7 +219,7 @@
 				TargetAttributes = {
 					84FFADB22056164600DB33DA = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					84FFADC62056164700DB33DA = {
 						CreatedOnToolsVersion = 9.2;
@@ -245,6 +254,7 @@
 			files = (
 				84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */,
 				84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */,
+				849A984320573B8A005F2B1F /* fastlane in Resources */,
 				84FFADBC2056164700DB33DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +292,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */,
+				849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */,
 				84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */,
 				84FFADD720564CA000DB33DA /* APIService.swift in Sources */,
+				849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */,
 				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
 				844865B12056836E0076B976 /* Golf.swift in Sources */,
 				84C11940205670560003D0B6 /* EndPoints.swift in Sources */,
@@ -439,8 +451,10 @@
 		84FFADD12056164700DB33DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,16 +465,21 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bethegame.golf";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		84FFADD22056164700DB33DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,8 +490,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bethegame.golf";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -482,6 +504,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -490,6 +513,7 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -499,6 +523,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -507,6 +532,7 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

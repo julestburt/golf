@@ -14,28 +14,42 @@ class LeaderboardVC: UIViewController {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    
-    
-    var leaderboardData:[LeaderBoardEntry]? = nil
+    let refreshControl = UIRefreshControl()
     
     var golf:Golf? = nil
     var presenter:LeaderBoardPresenter? = nil
+    var leaderboardData:[LeaderBoardEntry]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         table.delegate = self
         table.dataSource = self
-        
+        table.showsVerticalScrollIndicator = false
+
         presenter = LeaderBoardPresenter(delegate: self)
         golf = Golf.data
-        golf?.presenter = presenter
-        
+        golf?.leaderBoardPresenter = presenter
 //        golf?.getLeaderBoard()  // getting the pre-build LeaderBoard
-        
         golf?.getCalculatedLeaderBoard()    // getting the leaderboard from various endpoints
+        
+        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            table.refreshControl = refreshControl
+        } else {
+            table.addSubview(refreshControl)
+        }
         activity.startAnimating()
     }
+    
+    @objc func refreshPulled() {
+        golf?.getCalculatedLeaderBoard()
+        UIView.animate(withDuration: 0.15) {
+            self.loadingScreen.alpha = 1.0
+            self.activity.startAnimating()
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,7 +59,16 @@ class LeaderboardVC: UIViewController {
 
 extension LeaderboardVC : LeaderBoardAction {
     func present(leaderboard: [LeaderBoardEntry]) {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
         leaderboardData = leaderboard
+        if let name = golf?.courseDetail?.name {
+            self.title = NSLocalizedString("\(name)", comment: "title of golf course from data")
+        } else {
+            self.title = "Golf Leaderboard"
+        }
+
         UIView.animate(withDuration: 0.25) {
             self.loadingScreen.alpha = 0
             self.activity.stopAnimating()
@@ -85,9 +108,21 @@ extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row > 0 else { return }
         
-        // set chosen row / player ID
-        // golf.?selectedPlayerRow()
+        let selection = indexPath.row-1
+        golf?.setChosenPlayer(selection)
         performSegue(withIdentifier: "showPlayerDetail", sender: nil)
+        table.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        guard indexPath.row != 0 else {
+            return false
+        }
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
 

@@ -30,8 +30,7 @@ class Players {
             self.init(ID: ID, firstName: firstName, lastName: lastName, countryCode: countryCode)
         } else {
             self.init(ID: -1, firstName: "", lastName: "", countryCode: "")
-        }
-        
+        }   
     }
     
 }
