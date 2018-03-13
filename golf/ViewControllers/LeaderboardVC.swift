@@ -44,10 +44,6 @@ class LeaderboardVC: UIViewController {
     
     @objc func refreshPulled() {
         golf?.getCalculatedLeaderBoard()
-        UIView.animate(withDuration: 0.15) {
-            self.loadingScreen.alpha = 1.0
-            self.activity.startAnimating()
-        }
     }
 
     

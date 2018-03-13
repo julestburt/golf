@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 
 class ScoreCard: UIViewController {
-    
+
     let golf = Golf.data
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         let back = UIBarButtonItem.init(title: NSLocalizedString("Back", comment: ""), style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.topItem?.backBarButtonItem = back
+        
     }
-
 }
+
