@@ -171,7 +171,9 @@ class Golf : NSObject {
                 let entry = Entries(score: score, player_id: player_id, thru: thru, total: total, rank: nil)
                 leader.append(entry)
             }
-            self.leaderBoard = leader
+            // let's ensure the leaderboard is sorted
+            var sortedLeader = leader.sorted(by: { $0.score < $1.score })
+            self.leaderBoard = sortedLeader
         }
     }
 }
