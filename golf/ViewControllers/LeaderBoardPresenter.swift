@@ -54,22 +54,19 @@ class LeaderBoardPresenter: NSObject {
     func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players]) {
         var leaderboardPresent:[LeaderBoardEntry] = []
         
-        
-        var sortedLeader = leaderboard.sorted(by: { $0.score < $1.score })
-        
         var lastPos:Int? = nil
         var lastWasEven:Bool? = nil
         var position = 1
         
         func nextEntryScoreSameThis(_ current:Int, score:Int) -> Bool {
-            if !(sortedLeader.count > current + 1) {
+            if !(leaderboard.count > current + 1) {
                 return false
             }
-            let entry = sortedLeader[current+1]
+            let entry = leaderboard[current+1]
             return entry.score == score ? true : false
         }
         
-        for (presentCount, eachEntry) in sortedLeader.enumerated() {
+        for (presentCount, eachEntry) in leaderboard.enumerated() {
             var pos:String = ""
             if nextEntryScoreSameThis(presentCount, score:eachEntry.score) {
                 pos = pos + "T" + "\(position)"
