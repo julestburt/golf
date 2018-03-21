@@ -15,25 +15,21 @@ struct LeaderBoardEntry {
     let score:String
     let thru:String
 }
-
-protocol LeaderBoardAction:class {
-    func present(leaderboard:[LeaderBoardEntry])
+protocol LeaderBoardPresentationLogic {
+    func showLeaderFromAPI(_ leaderboard:[Entries])
+    func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players])
 }
 
-class LeaderBoardPresenter: NSObject {
+class LeaderBoardPresenter: LeaderBoardPresentationLogic {
     
-    var delegate:LeaderBoardAction? = nil
-    
-    init(delegate:LeaderBoardAction) {
-        self.delegate = delegate
-    }
+    var viewController: LeaderBoardVCDisplayLogic?
     
     // this displays the 'pre-made' leaderboard received from the API
     func showLeaderFromAPI(_ leaderboard:[Entries]) {
         var leaderboardPresent:[LeaderBoardEntry] = []
         
         for eachEntry in leaderboard {
-            
+
             if let pos = eachEntry.rank {
                 let playerName = String(eachEntry.player_id)
                 let tot = String(eachEntry.total)
@@ -47,7 +43,9 @@ class LeaderBoardPresenter: NSObject {
                 assert(true, "error - missing pos / rank in data")
             }
         }
-        delegate?.present(leaderboard: leaderboardPresent)
+        let title = "" != nil ? "" : NSLocalizedString("Golf Leaderboard", comment: "alternative title when none found")
+        let viewModel = leaderBoard.showLeaderBoard.ViewModel(tournamentTitle: title, leaderBoard: leaderboardPresent)
+        viewController?.present(viewModel: viewModel)
     }
     
     // this displays the assembled leaderboard from various API endpoints
@@ -106,7 +104,9 @@ class LeaderBoardPresenter: NSObject {
             
             leaderboardPresent.append(presentEntry)
         }
-        delegate?.present(leaderboard: leaderboardPresent)
+        let title = "" != nil ? "" : NSLocalizedString("Golf Leaderboard", comment: "alternative title when none found")
+        let viewModel = leaderBoard.showLeaderBoard.ViewModel(tournamentTitle: title, leaderBoard: leaderboardPresent)
+        viewController?.present(viewModel: viewModel)
     }
 
 }

@@ -9,15 +9,18 @@
 import UIKit
 import SwiftyJSON
 
-class LeaderboardVC: UIViewController {
+protocol LeaderBoardVCDisplayLogic : class {
+    func present(viewModel: leaderBoard.showLeaderBoard.ViewModel)
+}
+
+class LeaderboardVC: UIViewController, LeaderBoardVCDisplayLogic {
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     let refreshControl = UIRefreshControl()
     
-    var golf:Golf? = nil
-    var presenter:LeaderBoardPresenter? = nil
+    var interactor:golfLeaderBoardLogic? = nil
     var leaderboardData:[LeaderBoardEntry]? = nil
     
     override func viewDidLoad() {
@@ -27,11 +30,16 @@ class LeaderboardVC: UIViewController {
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
 
-        presenter = LeaderBoardPresenter(delegate: self)
-        golf = Golf.data
-        golf?.leaderBoardPresenter = presenter
-//        golf?.getLeaderBoard()  // getting the pre-build LeaderBoard
-        golf?.getCalculatedLeaderBoard()    // getting the leaderboard from various endpoints
+        let viewController = self
+        let presenter = LeaderBoardPresenter()
+        let golfInteractor = Golf.data
+        interactor = golfInteractor
+        golfInteractor.leaderBoardPresenter = presenter
+        viewController.interactor = interactor
+        presenter.viewController = viewController
+        
+//        interactor?.getLeaderBoard()           // getting the pre-build LeaderBoard
+        interactor?.getCalculatedLeaderBoard()
         
         refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -43,33 +51,47 @@ class LeaderboardVC: UIViewController {
     }
     
     @objc func refreshPulled() {
-        golf?.getCalculatedLeaderBoard()
+        interactor?.getCalculatedLeaderBoard()
     }
 
-    
+    func present(viewModel: leaderBoard.showLeaderBoard.ViewModel) {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        
+        leaderboardData = viewModel.leaderBoard
+        title = viewModel.tournamentTitle
+        
+        UIView.animate(withDuration: 0.25) {
+            self.loadingScreen.alpha = 0
+            self.activity.stopAnimating()
+        }
+        table.reloadData()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
 
-extension LeaderboardVC : LeaderBoardAction {
-    func present(leaderboard: [LeaderBoardEntry]) {
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+enum leaderBoard
+{
+    // MARK: Use cases
+    
+    enum showLeaderBoard
+    {
+        struct Request
+        {
         }
-        leaderboardData = leaderboard
-        if let name = golf?.courseDetail?.name {
-            self.title = NSLocalizedString("\(name)", comment: "title of golf course from data")
-        } else {
-            self.title = "Golf Leaderboard"
+        struct Response
+        {
         }
-
-        UIView.animate(withDuration: 0.25) {
-            self.loadingScreen.alpha = 0
-            self.activity.stopAnimating()
+        struct ViewModel
+        {
+            let tournamentTitle:String
+            let leaderBoard:[LeaderBoardEntry]
         }
-        table.reloadData()
     }
 }
 
@@ -77,7 +99,6 @@ extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leaderboardData != nil ? leaderboardData!.count + 1 : 0
     }
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return leaderboardData != nil ? 1 : 0
@@ -105,7 +126,7 @@ extension LeaderboardVC : UITableViewDelegate, UITableViewDataSource {
         guard indexPath.row > 0 else { return }
         
         let selection = indexPath.row-1
-        golf?.setChosenPlayer(selection)
+        interactor?.setChosenPlayer(selection)
         performSegue(withIdentifier: "showPlayerDetail", sender: nil)
         table.deselectRow(at: indexPath, animated: true)
     }
@@ -145,9 +166,7 @@ class LeaderBoardCell: UITableViewCell {
         self.tot.text = tot
         self.score.text = score
         self.thru.text = thru
-
     }
-    
 }
 
 
