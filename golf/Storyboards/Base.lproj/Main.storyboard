@@ -228,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="236" y="133.5832083958021"/>
         </scene>
-        <!--Score Card-->
+        <!--Score CardVC-->
         <scene sceneID="GGr-vB-6wV">
             <objects>
-                <viewController id="X04-D2-CX1" customClass="ScoreCard" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X04-D2-CX1" customClass="ScoreCardVC" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Bx-XS-5Hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

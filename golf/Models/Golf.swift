@@ -9,16 +9,20 @@
 import Foundation
 import SwiftyJSON
 
-class Golf : NSObject {
+// Please note this Class doesn't support getting both Leaderboards simultaneously.
+
+protocol golfLeaderBoardLogic {
+    func getLeaderBoard()
+    func getCalculatedLeaderBoard()
+    func setChosenPlayer(_ selection:Int)
+}
+
+class Golf : golfLeaderBoardLogic {
     
     static let data = Golf()
     var leaderBoardPresenter:LeaderBoardPresenter?
     var scoreCardPresenter:ScoreCardPresenter?
     var endPoints:EndPoints? = EndPoints()
-    
-    override init() {
-        super.init()
-    }
     
     var leaderBoard:[Entries]? = nil
     var playerList:[Int:Players]? = [:]
@@ -29,55 +33,62 @@ class Golf : NSObject {
     var selectedPlayer:Int? = nil
 
     let chosenGame = 1000
-    
+
     func setChosenPlayer(_ selection:Int) {
         selectedPlayer = selection
     }
     
     func getPlayerScoreCard() {
-        // assume golf already has current data - so no new API
+        
+        // assume golf class already has current data - so no new API for now
         if let selected_id = selectedPlayer, let scoreDetails = calculateScoreCard(chosen:selected_id) {
-            self.scoreCardPresenter?.showScoreCardFromGolf(scoreDetails)
+            scoreCardPresenter?.showScoreCardFromGolf(scoreDetails)
         } else {
             print("scores missing")
         }
     }
     
     func calculateScoreCard(chosen:Int) -> [String]? {
-        var scores:[String]? = nil
+        var scores:[String] = []
         if let course = self.courseDetail, let event = event, let players = playerList {
-        }        
+            for each in scores {
+                scores.append("Scores")
+            }
+        }
         return scores
     }
-
+    
     func getLeaderBoard() {
         guard !inProgressAlready else { return }
         inProgressAlready = true
 
         var endPointCount = 2
         
-        endPoints?.getLeaderboard(eventID: chosenGame, completion: { json in
-            let data = json["data"]
-            if data.error?.code == nil && !data.isEmpty && data.count > 0 {
-                self.leaderBoard = []
-                for (_, eachEntryJSON) in data {
-                    let entry = Entries(json: eachEntryJSON)
-                    self.leaderBoard?.append(entry)
-                }
-                checkLeaderBoardReturns()
+        endPoints?.getLeaderboard(eventID: chosenGame, completion: { result in
+            switch result {
+            case .Success(let data):
+                    self.leaderBoard = []
+                    for (_, eachEntryJSON) in data {
+                        let entry = Entries(json: eachEntryJSON)
+                        self.leaderBoard?.append(entry)
+                    }
+            case .Error(let error, let code, let message):
+                break
             }
+            checkLeaderBoardReturns()
         })
-        
-        endPoints?.getPlayers(completion: { json in
-            let data = json["data"]
-            if data.error?.code == nil && !data.isEmpty && data.count > 0 {
-                self.playerList = [:]
-                for (_, eachEntryJSON) in data {
-                    let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
-                    self.playerList?[player.ID] = player
-                }
-                checkLeaderBoardReturns()
+        endPoints?.getPlayers(completion: { result in
+            switch result {
+            case .Success(let data):
+                    self.playerList = [:]
+                    for (_, eachEntryJSON) in data {
+                        let player = Players(json: eachEntryJSON)
+                        self.playerList?[player.ID] = player
+                    }
+            case .Error(let error, let code, let message):
+                break
             }
+            checkLeaderBoardReturns()
         })
         
         func checkLeaderBoardReturns() {
@@ -85,7 +96,7 @@ class Golf : NSObject {
             guard endPointCount == 0 else { return }
             inProgressAlready = false
             if let leader = self.leaderBoard, let players = self.playerList {
-                self.leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players)
+                leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players)
             } else {
                 print("problem data missing")
             }
@@ -100,37 +111,41 @@ class Golf : NSObject {
         inProgressAlready = true
         var endPointCount = 3
 
-        
-        endPoints?.getEvent(eventID: chosenGame, completion: { json in
-            let data = json["data"]
-            if data.error?.code == nil {
+        endPoints?.getEvent(eventID: chosenGame, completion: { result in
+            switch result {
+            case .Success(let data):
                 self.event = Event(json: data)
-                checkCalculatedReturns()
                 
-                // get course
-                self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { json in
-                    let data = json["data"]
-                    if data.error?.code == nil {
+                self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
+                    switch result {
+                    case .Success(let data):
                         let course = Course(json: data)
                         self.courseDetail = course
-                        checkCalculatedReturns()
+                    case .Error(let error, let code, message: let message):
+                        break
                     }
+                    checkCalculatedReturns()
                 })
+            case .Error(let error, let code, let message):
+                break
             }
+            checkCalculatedReturns()
+
         })
+        
     
-    
-        endPoints?.getPlayers(completion: { json in
-            let data = json["data"]
-            if data.error?.code == nil && !data.isEmpty && data.count > 0 {
-                self.playerList = [:]
-                for (_, eachEntryJSON) in data {
-                    let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
-                    self.playerList?[player.ID] = player
-                }
-                checkCalculatedReturns()
+        endPoints?.getPlayers(completion: { result in
+            switch result {
+            case .Success(let data):
+                    self.playerList = [:]
+                    for (_, eachEntryJSON) in data {
+                        let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
+                        self.playerList?[player.ID] = player
+                    }
+            case .Error(let error, let code, let message):
+                break
             }
-    
+            checkCalculatedReturns()
         })
     
         func checkCalculatedReturns() {
@@ -138,9 +153,9 @@ class Golf : NSObject {
             guard endPointCount == 0 else { return }
             inProgressAlready = false
             if let event = self.event, let players = self.playerList, let course = self.courseDetail {
-                calculateLeaderBoard()
+                calculateLeaderBoard(event: event, players:players, course:course)
                 if let leader = self.leaderBoard {
-                    self.leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players)
+                    leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players)
                 }
             } else {
                 print("likely no leaderboard")
@@ -149,9 +164,9 @@ class Golf : NSObject {
 
     }
     
-    func calculateLeaderBoard() {
+    func calculateLeaderBoard(event:Event, players:[Int:Players], course:Course) {
         var leader = [Entries]()
-        if let players = event?.participants, let course = self.courseDetail {
+        if let players = event.participants {
             parDetails = [:]
             for (number, hole) in course.holes {
                 parDetails[number] = hole.par
@@ -172,7 +187,7 @@ class Golf : NSObject {
                 leader.append(entry)
             }
             // let's ensure the leaderboard is sorted
-            var sortedLeader = leader.sorted(by: { $0.score < $1.score })
+            let sortedLeader = leader.sorted(by: { $0.score < $1.score })
             self.leaderBoard = sortedLeader
         }
     }
