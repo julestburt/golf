@@ -89,7 +89,7 @@ class Course {
 class Event {
     let id:Int
     let courseID:Int
-    var participants:[Int:[Int]]
+    var participants:[Int:[Int]]?
     
     init(id:Int, courseID:Int, participants:[Int:[Int]]) {
         self.id = id

@@ -44,44 +44,56 @@ class API : NSObject {
         headers["Authorization"] = token
         let request = APIRequest(tag:tag, url:url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers, retryCount:maxRetry)
         
-        // check about API reachbility...
-        
-        let alamoRequest = alamoFire.request(serviceURL + request.url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers) .responseJSON { response in
-            guard response.result.error == nil else {
-                
-                // basic error handling here
-                if let error = response.result.error as NSError? {
-                    if error.code > 0 {
-                        delegate.didFail(tag: request.tag, error: "\(error.code)", code: error.code)
+        let alamoRequest = alamoFire.request(serviceURL + request.url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers) .validate() .responseJSON { response in
+            
+            switch response.result {
+            case .success:
+                if let json = response.result.value {
+                    let result = JSON(json)
+                    if let serverMessage = Utils.stringJSON(result["message"]) {
+                        delegate.didFail(tag: request.tag, error: serverMessage, code: nil)
                         return
                     }
+                    Utils().saveDebugData(result.description, fileName: request.tag)
+                    delegate.didRecieve(tag: request.tag, result: result)
                 }
-                return
-            }
-            if response.result.isFailure {
-                delegate.didFail(tag: request.tag, error: response.result.description, code: -1)
-                return
-            }
-            
-            let result = JSON(response.result.value!)
-//            print(result)
-            if result["message"] == "unauthorized" {
-                delegate.didFail(tag: request.tag, error: result["message"].stringValue, code: nil)
-                return
-            }
-            
-            let jsonResponse = JSON(response.data!)
-            if result["status"].exists(), let code = Utils.intJSON(result["status"]["code"]) {
-                if !(code >= 200 && code < 300) {
-                    if let message = Utils.stringJSON(result["status"]["message"]) {
-                        delegate.didFail(tag: request.tag, error: message, code: code)
-                    } else {
-                        delegate.didFail(tag: request.tag, error: "No Message", code: code)
+            case .failure(let error):
+                var errorMessage:String = ""
+                var errorCode:Int?
+                if let error = error as? AFError {
+                    switch error {
+                    case .invalidURL(let url):
+                        errorMessage = "Invalid URL: \(url) - \(error.localizedDescription)"
+                    case .parameterEncodingFailed(let reason):
+                        errorMessage = "Parameter encoding failed: \(error.localizedDescription)"
+                        errorMessage += " - Failure Reason: \(reason)"
+                    case .multipartEncodingFailed(let reason):
+                        errorMessage = "Multipart encoding failed: \(error.localizedDescription)"
+                        errorMessage += "- Failure Reason: \(reason)"
+                    case .responseValidationFailed(let reason):
+                        errorMessage = "Response validation failed: \(error.localizedDescription)"
+                        errorMessage += " - Failure Reason: \(reason)"
+                        
+                        switch reason {
+                        case .dataFileNil, .dataFileReadFailed:
+                            errorMessage += ", Downloaded file could not be read"
+                        case .missingContentType(let acceptableContentTypes):
+                            errorMessage += ", Content Type Missing: \(acceptableContentTypes)"
+                        case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
+                            errorMessage += ", Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)"
+                        case .unacceptableStatusCode(let code):
+                            errorMessage += ", Response status code was unacceptable: \(code)"
+                            errorCode = code
+                        }
+                    case .responseSerializationFailed(let reason):
+                        errorMessage = "Response serialization failed: \(error.localizedDescription)"
+                        errorMessage += "- Failure Reason: \(reason)"
                     }
-                    return
+                    
                 }
+                delegate.didFail(tag: request.tag, error: error.localizedDescription, code: errorCode)
             }
-            delegate.didRecieve(tag: request.tag, result: result)
+        
             return
         }
         currentRequests.append(alamoRequest)
@@ -108,6 +120,38 @@ class Utils {
         }
         return nil
     }
+    
+    private let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+
+    func saveDebugData(_ sourceString:String, fileName:String) {
+        
+        #if DEBUG
+            let fileNamePath = documentsPath.appendingPathComponent(fileName+".txt")
+            do {
+                
+                try sourceString.write(toFile: fileNamePath, atomically: true, encoding: String.Encoding.utf8)
+            } catch let error as NSError {
+                print("error saving file \(fileNamePath)")
+                print(error.localizedDescription)
+            }
+        #endif
+    }
+    
+    func loadDebugData(fileName:String) -> [AnyObject]? {
+        let inventoryPath = documentsPath.appendingPathComponent(fileName)
+        do {
+            let sourceString = try NSString(contentsOfFile: inventoryPath, encoding: String.Encoding.utf8.rawValue)
+            let strippedText = sourceString.replacingOccurrences(of: "#!\"C:\\Bitnami\\wampstack-5.5.34-0\\php\\php\"\r\n", with: "")
+            let data2 = strippedText.data(using: String.Encoding.utf8)
+            let array = try JSONSerialization.jsonObject(with: data2!, options: JSONSerialization.ReadingOptions(rawValue: 0))  as? [AnyObject]
+            return array!
+        } catch let error as NSError {
+            print("error loading from file \(inventoryPath)")
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+
 }
 
 enum APIRequestMethod {

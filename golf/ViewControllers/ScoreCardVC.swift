@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ScoreCard: UIViewController {
+class ScoreCardVC: UIViewController {
 
     let golf = Golf.data
 
