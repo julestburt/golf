@@ -16,40 +16,21 @@ struct LeaderBoardEntry {
     let thru:String
 }
 protocol LeaderBoardPresentationLogic {
-    func showLeaderFromAPI(_ leaderboard:[Entries])
-    func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players])
+    func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players], title:String?)
+    func prepareLeaderBoardForView(_ leaderboard:[Entries], players:[Int:Players], title:String?) -> leaderBoard.showLeaderBoard.ViewModel
 }
 
 class LeaderBoardPresenter: LeaderBoardPresentationLogic {
     
     var viewController: LeaderBoardVCDisplayLogic?
     
-    // this displays the 'pre-made' leaderboard received from the API
-    func showLeaderFromAPI(_ leaderboard:[Entries]) {
-        var leaderboardPresent:[LeaderBoardEntry] = []
-        
-        for eachEntry in leaderboard {
-
-            if let pos = eachEntry.rank {
-                let playerName = String(eachEntry.player_id)
-                let tot = String(eachEntry.total)
-                let score = String(eachEntry.score)
-                let thru = String(eachEntry.thru)
-                
-                let presentEntry = LeaderBoardEntry(pos: pos, playerName: playerName, tot: tot, score: score, thru: thru)
-                
-                leaderboardPresent.append(presentEntry)
-            } else {
-                assert(true, "error - missing pos / rank in data")
-            }
-        }
-        let title = "" != nil ? "" : NSLocalizedString("Golf Leaderboard", comment: "alternative title when none found")
-        let viewModel = leaderBoard.showLeaderBoard.ViewModel(tournamentTitle: title, leaderBoard: leaderboardPresent)
+    // this displays the assembled leaderboard from various API endpoints
+    func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players], title:String?) {
+        let viewModel = prepareLeaderBoardForView(leaderboard, players:players, title:title)
         viewController?.present(viewModel: viewModel)
     }
     
-    // this displays the assembled leaderboard from various API endpoints
-    func showLeaderFromAPIAggregate(_ leaderboard:[Entries], players:[Int:Players]) {
+    func prepareLeaderBoardForView(_ leaderboard:[Entries], players:[Int:Players], title:String? = nil) -> leaderBoard.showLeaderBoard.ViewModel {
         var leaderboardPresent:[LeaderBoardEntry] = []
         
         var lastPos:Int? = nil
@@ -85,7 +66,7 @@ class LeaderBoardPresenter: LeaderBoardPresentationLogic {
             } else {
                 playerName = "missing player - name?"
             }
-
+            
             let tot = String(eachEntry.total)
             let score = String(eachEntry.score) != "0" ? String(eachEntry.score) : "EVEN"
             
@@ -104,9 +85,10 @@ class LeaderBoardPresenter: LeaderBoardPresentationLogic {
             
             leaderboardPresent.append(presentEntry)
         }
-        let title = "" != nil ? "" : NSLocalizedString("Golf Leaderboard", comment: "alternative title when none found")
+        let title = title != nil ? title! : NSLocalizedString("Golf Leaderboard", comment: "alternative title when none found")
         let viewModel = leaderBoard.showLeaderBoard.ViewModel(tournamentTitle: title, leaderBoard: leaderboardPresent)
-        viewController?.present(viewModel: viewModel)
+        return viewModel
+
     }
 
 }
