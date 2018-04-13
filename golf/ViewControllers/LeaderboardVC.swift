@@ -38,8 +38,7 @@ class LeaderboardVC: UIViewController, LeaderBoardVCDisplayLogic {
         viewController.interactor = interactor
         presenter.viewController = viewController
         
-//        interactor?.getLeaderBoard()           // getting the pre-build LeaderBoard
-        interactor?.getCalculatedLeaderBoard()
+        getAlternatedAPI()
         
         refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -49,9 +48,18 @@ class LeaderboardVC: UIViewController, LeaderBoardVCDisplayLogic {
         }
         activity.startAnimating()
     }
+    var alternate:Bool = true
+    func getAlternatedAPI() {
+        if alternate {
+            interactor?.getCalculatedLeaderBoard()
+        } else {
+            interactor?.getLeaderBoard()
+        }
+        alternate = alternate ? false : true
+    }
     
     @objc func refreshPulled() {
-        interactor?.getCalculatedLeaderBoard()
+        getAlternatedAPI()
     }
 
     func present(viewModel: leaderBoard.showLeaderBoard.ViewModel) {
