@@ -110,14 +110,12 @@ class Event {
                         let holes = eachParticipant["holes"]
                         var rounds:[Int] = []
                         if holes.error?.code == nil, !holes.isEmpty && holes.count > 0 {
-//                              var rounds:[Int] = []
                             for (_, each) in holes {
                                 let round = each.int
                                 if round != nil {
                                     rounds.append(round!)
                                 }
                             }
-//                              particpants[player_id] = rounds
                         }
                         particpants[player_id] = rounds
                     }
