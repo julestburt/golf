@@ -30,7 +30,7 @@ class leaderBoardPresenterTests: XCTestCase {
         let leaderBoard = [entry1, entry2, entry3, entry4]
         
         let player1 = Players(ID: 1001, firstName: "Jules", lastName: "Burt", countryCode: "UK")
-        let player2 = Players(ID: 1002, firstName: "Steve", lastName: "Jones", countryCode: "US")
+        let player2 = Players(ID: 1010, firstName: "Steve", lastName: "Jones", countryCode: "US")
         let player3 = Players(ID: 1003, firstName: "Bob", lastName: "Newton", countryCode: "CA")
         let player4 = Players(ID: 1004, firstName: "Sally", lastName: "Granger", countryCode: "CA")
         var players:[Int:Players] = [:]
@@ -52,13 +52,24 @@ class leaderBoardPresenterTests: XCTestCase {
         let fakeVC:FakeVC = FakeVC()
         leaderBoardPresenter.viewController = fakeVC
         leaderBoardPresenter.showLeaderFromAPIAggregate(leaderBoard, players: players, title:nil)
-        let viewModel = (fakeVC.presentationOutput)!
+        var viewModel = (fakeVC.presentationOutput)!
         
-//        let viewModel = leaderBoardPresenter.prepareLeaderBoardForView(leaderBoard, players: players)
-        XCTAssertEqual(viewModel.leaderBoard[1].thru, "F", "missing F for 18 holes complete")
-        XCTAssertEqual(viewModel.leaderBoard[3].thru, "-", "missing hyphen for zero rounds")
-        XCTAssertEqual(viewModel.leaderBoard[2].score, "EVEN", "missing EVEN for zero score")
-        XCTAssertEqual(viewModel.leaderBoard[0].playerName, "Jules Burt", "missing name - was not found")
+        XCTAssertEqual(viewModel.leaderBoard[1].thru, "F")
+        
+        XCTAssertEqual(viewModel.leaderBoard[3].thru, "-")
+        
+        XCTAssertFalse(viewModel.leaderBoard[1].playerName == "Steve Jones")
+        
+        XCTAssertEqual(viewModel.leaderBoard[2].score, "EVEN")
+        
+        XCTAssertEqual(viewModel.leaderBoard[0].playerName, "Jules Burt")
+        
+        XCTAssertEqual(viewModel.tournamentTitle, "Golf Leaderboard")
+        
+        leaderBoardPresenter.showLeaderFromAPIAggregate(leaderBoard, players: players, title:"Test Title")
+        viewModel = (fakeVC.presentationOutput)!
+        XCTAssertEqual(viewModel.tournamentTitle, "Test Title")
+
    }
     
     func testExample() {

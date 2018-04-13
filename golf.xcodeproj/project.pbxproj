@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420D2E2206EEA5600C2CD4E /* Alamofire.framework */; };
 		8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */; };
 		844865B12056836E0076B976 /* Golf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B02056836E0076B976 /* Golf.swift */; };
 		844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
 		844865BA2056D6BF0076B976 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
-		8495C1F72056737C004BC2F1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F62056737C004BC2F1 /* Alamofire.framework */; };
 		8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */; };
 		849A984320573B8A005F2B1F /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 849A984220573B8A005F2B1F /* fastlane */; };
 		849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
@@ -39,11 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8420D2E2206EEA5600C2CD4E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenterTests.swift; sourceTree = "<group>"; };
 		844865B02056836E0076B976 /* Golf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golf.swift; sourceTree = "<group>"; };
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
-		8495C1F62056737C004BC2F1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		849A984220573B8A005F2B1F /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		849A984420574EAA005F2B1F /* ScoreCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardVC.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */,
-				8495C1F72056737C004BC2F1 /* Alamofire.framework in Frameworks */,
+				8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 			children = (
 				84FFADB52056164700DB33DA /* golf */,
 				849A984220573B8A005F2B1F /* fastlane */,
-				8495C1F62056737C004BC2F1 /* Alamofire.framework */,
+				8420D2E2206EEA5600C2CD4E /* Alamofire.framework */,
 				8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
 				84FFADB42056164700DB33DA /* Products */,
@@ -464,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,7 +489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,7 +514,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +537,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

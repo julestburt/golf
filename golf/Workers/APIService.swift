@@ -151,6 +151,13 @@ class Utils {
             return nil
         }
     }
+    
+    static func lock(obj: Any, blk:() -> ()) {
+        objc_sync_enter(obj)
+        blk()
+        objc_sync_exit(obj)
+    }
+
 
 }
 
