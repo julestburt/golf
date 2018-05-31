@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import Then
 
 // Please note this Class doesn't support getting both Leaderboards simultaneously.
 
@@ -119,6 +120,8 @@ class Golf : golfLeaderBoardLogic {
         }
     }
     
+    
+    
     internal func getCalculatedLeaderBoard () {
         guard !inProgressAlready else { return }
         inProgressAlready = true
@@ -131,16 +134,7 @@ class Golf : golfLeaderBoardLogic {
             case .Success(let data):
                 self.event = Event(json: data)
                 
-                self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
-                    switch result {
-                    case .Success(let data):
-                        let course = Course(json: data)
-                        self.courseDetail = course
-                    case .Error(let error, let code, message: let message):
-                        break
-                    }
-                    checkCalculatedReturns()
-                })
+                getCourse()
             case .Error(let error, let code, let message):
                 break
             }
@@ -163,6 +157,19 @@ class Golf : golfLeaderBoardLogic {
             checkCalculatedReturns()
         })
     
+        func getCourse() {
+            self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
+                switch result {
+                case .Success(let data):
+                    let course = Course(json: data)
+                    self.courseDetail = course
+                case .Error(let error, let code, message: let message):
+                    break
+                }
+                checkCalculatedReturns()
+            })
+        }
+        
         func checkCalculatedReturns() {
             Utils.lock(obj: endPointCount) {
                 endPointCount -= 1

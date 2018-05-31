@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		840197C420829D1C00E45D75 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840197C320829D1C00E45D75 /* Utils.swift */; };
 		8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420D2E2206EEA5600C2CD4E /* Alamofire.framework */; };
+		8421B7C320BE7A65006F46C0 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7C220BE7A65006F46C0 /* Then.framework */; };
 		8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */; };
 		844865B12056836E0076B976 /* Golf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B02056836E0076B976 /* Golf.swift */; };
 		844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		840197C320829D1C00E45D75 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8420D2E2206EEA5600C2CD4E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8421B7C220BE7A65006F46C0 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = Carthage/Build/iOS/Then.framework; sourceTree = "<group>"; };
 		8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenterTests.swift; sourceTree = "<group>"; };
 		844865B02056836E0076B976 /* Golf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golf.swift; sourceTree = "<group>"; };
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421B7C320BE7A65006F46C0 /* Then.framework in Frameworks */,
 				8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */,
 				8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */,
 			);
@@ -86,6 +89,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8421B7BE20BE79F1006F46C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		844865B42056D6240076B976 /* AppControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +151,10 @@
 				849A984220573B8A005F2B1F /* fastlane */,
 				8420D2E2206EEA5600C2CD4E /* Alamofire.framework */,
 				8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */,
+				8421B7C220BE7A65006F46C0 /* Then.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
 				84FFADB42056164700DB33DA /* Products */,
+				8421B7BE20BE79F1006F46C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -473,6 +485,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -498,6 +511,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
