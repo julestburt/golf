@@ -13,10 +13,11 @@ class EndPoints {
     var apiService = API.service
     
     struct APITags {
-        static let getLeader = "getLeader"
-        static let getPlayers = "getPlayers"
-        static let getEvent = "getEvent"
-        static let getCourse = "getCourse"
+        struct endpoint { let tag:String, endpoint:String }
+        static let getPlayers = endpoint(tag: "getPlayers", endpoint: "/api/1/players/")
+        static let getEvent = endpoint(tag: "getEvent", endpoint: "/api/1/events/{eventID}/")
+        static let getCourse = endpoint(tag: "getCourse", endpoint: "/api/1/courses/{courseID}/")
+        static let getLeader = endpoint(tag:"getLeader", endpoint:"/api/1/events/{eventID}/leaderboard/")
     }
 
     typealias jsonCompletion = ((APIDataResult<NSData>)->())
@@ -27,32 +28,31 @@ class EndPoints {
     
     var completionReturns:[String:jsonCompletion] = [:]
 
-    let returnLeaderBoard = "/api/1/events/{event_id}/leaderboard/"
     func getLeaderboard(eventID:Int, completion: @escaping (APIDataResult<NSData>)->()) {
-        let url = returnLeaderBoard.replacingOccurrences(of: "{event_id}", with: "\(eventID)")
-        _ = apiService.request(tag: APITags.getLeader, url: url, delegate: self)
-        completionReturns[APITags.getLeader]=completion
+        let getLeader = APITags.getLeader
+        let url = getLeader.endpoint.replacingOccurrences(of: "{eventID}", with: "\(eventID)")
+        _ = apiService.request(tag: getLeader.tag, url: url, delegate: self)
+        completionReturns[getLeader.tag]=completion
     }
 
-    let returnPlayers = "/api/1/players/"
     func getPlayers(completion: @escaping (APIDataResult<NSData>)->()) {
-        let url = returnPlayers
-        let _ = apiService.request(tag: APITags.getPlayers, url: url, delegate: self)
-        completionReturns[APITags.getPlayers]=completion
+        let getPlayers = APITags.getPlayers
+        let _ = apiService.request(tag: getPlayers.tag, url: getPlayers.endpoint, delegate: self)
+        completionReturns[getPlayers.tag]=completion
     }
     
-    let returnEvent = "/api/1/events/{event_id}/"
     func getEvent(eventID:Int, completion: @escaping (APIDataResult<NSData>)->()) {
-        let url = returnEvent.replacingOccurrences(of: "{event_id}", with: "\(eventID)")
-        let _ = apiService.request(tag: APITags.getEvent, url: url, delegate: self)
-        completionReturns[APITags.getEvent]=completion
+        let getEvent = APITags.getEvent
+        let url = getEvent.endpoint.replacingOccurrences(of: "{eventID}", with: "\(eventID)")
+        let _ = apiService.request(tag: getEvent.tag, url: url, delegate: self)
+        completionReturns[getEvent.tag]=completion
     }
     
-    let returnCourse = "/api/1/courses/{course_id}/"
     func getCourse(courseID:Int, completion: @escaping (APIDataResult<NSData>)->()) {
-        let url = returnCourse.replacingOccurrences(of: "{course_id}", with: "\(courseID)")
-        let _ = apiService.request(tag: APITags.getCourse, url: url, delegate: self)
-        completionReturns[APITags.getCourse]=completion
+        let getCourse = APITags.getCourse
+        let url = getCourse.endpoint.replacingOccurrences(of: "{courseID}", with: "\(courseID)")
+        let _ = apiService.request(tag: getCourse.tag, url: url, delegate: self)
+        completionReturns[getCourse.tag]=completion
     }
     
     func processArrayJSON (_ data:JSON) -> JSON? {
@@ -69,15 +69,16 @@ extension EndPoints: APIResponse {
         let data = result["data"]
         if data.error?.code == nil, let completion = completionReturns[tag] {
             switch tag {
-            case APITags.getLeader, APITags.getPlayers:
+            case APITags.getLeader.tag, APITags.getPlayers.tag:
                 if let array = processArrayJSON(data) {
                     completion(.Success(data:array))
                 } else {
                     completion(.Error((error:"Couldn't process array from JSON", code:-1, message:tag)))
                 }
-            case APITags.getCourse, APITags.getEvent:
+            case APITags.getCourse.tag, APITags.getEvent.tag:
                 completion(.Success(data:data))
             default:
+                assertionFailure("need to cover all cases")
                 break
             }
             
