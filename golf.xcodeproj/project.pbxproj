@@ -8,25 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		840197C420829D1C00E45D75 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840197C320829D1C00E45D75 /* Utils.swift */; };
-		8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420D2E2206EEA5600C2CD4E /* Alamofire.framework */; };
-		8421B7C320BE7A65006F46C0 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7C220BE7A65006F46C0 /* Then.framework */; };
+		8421B7CB20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */; };
+		8421B7CC20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */; };
+		8421B7D020BF8EAE006F46C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */; };
+		8421B7D120BF8EAE006F46C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */; };
+		8421B7D420BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */; };
+		8421B7D520BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */; };
+		8421B7D720BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */; };
+		8421B7D820BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */; };
+		8421B7DC20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */; };
+		8421B7DD20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */; };
+		8421B7DE20BFBF7C006F46C0 /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
+		8421B7DF20BFBF89006F46C0 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
+		8421B7E020BFBF9D006F46C0 /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
+		8421B7E120BFBFF9006F46C0 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
+		8421B7E220BFC1DE006F46C0 /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderBoardVC.swift */; };
+		8421B7E320BFC1F0006F46C0 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoints.swift */; };
+		8421B7E420BFC27D006F46C0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADD620564CA000DB33DA /* APIService.swift */; };
+		8421B7E520BFC28A006F46C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840197C320829D1C00E45D75 /* Utils.swift */; };
+		8421B7EA20BFC32F006F46C0 /* golfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7E820BFC32F006F46C0 /* golfTests.swift */; };
+		8421B7EC20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */; };
+		8421B7ED20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */; };
+		8421B7EF20BFD782006F46C0 /* ScoreCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */; };
+		8421B7F020BFD782006F46C0 /* ScoreCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */; };
 		8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */; };
-		844865B12056836E0076B976 /* Golf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B02056836E0076B976 /* Golf.swift */; };
 		844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
 		844865BA2056D6BF0076B976 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
-		8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */; };
+		8477A60920C0FBB200D1F910 /* ScoreCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */; };
+		8477A60A20C196AE00D1F910 /* ScoreCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */; };
 		849A984320573B8A005F2B1F /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 849A984220573B8A005F2B1F /* fastlane */; };
 		849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
 		849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
 		84B2D5A220643AF400EA25C3 /* GolfDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */; };
-		84B2D5A320643D6000EA25C3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */; };
 		84C11940205670560003D0B6 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoints.swift */; };
 		84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB62056164700DB33DA /* AppDelegate.swift */; };
-		84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderboardVC.swift */; };
+		84FFADB92056164700DB33DA /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderBoardVC.swift */; };
 		84FFADBC2056164700DB33DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
 		84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBD2056164700DB33DA /* Assets.xcassets */; };
 		84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */; };
-		84FFADCC2056164700DB33DA /* golfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADCB2056164700DB33DA /* golfTests.swift */; };
 		84FFADD720564CA000DB33DA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADD620564CA000DB33DA /* APIService.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +61,19 @@
 
 /* Begin PBXFileReference section */
 		840197C320829D1C00E45D75 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		8420D2E2206EEA5600C2CD4E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8421B7C220BE7A65006F46C0 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = Carthage/Build/iOS/Then.framework; sourceTree = "<group>"; };
+		8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardInteractor.swift; sourceTree = "<group>"; };
+		8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8421B7CE20BF8EAE006F46C0 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = Carthage/Build/iOS/Then.framework; sourceTree = "<group>"; };
+		8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardInteractor.swift; sourceTree = "<group>"; };
+		8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardModels.swift; sourceTree = "<group>"; };
+		8421B7E820BFC32F006F46C0 /* golfTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = golfTests.swift; sourceTree = "<group>"; };
+		8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardRouter.swift; sourceTree = "<group>"; };
+		8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardRouter.swift; sourceTree = "<group>"; };
 		8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenterTests.swift; sourceTree = "<group>"; };
-		844865B02056836E0076B976 /* Golf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golf.swift; sourceTree = "<group>"; };
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
-		8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardModels.swift; sourceTree = "<group>"; };
 		849A984220573B8A005F2B1F /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		849A984420574EAA005F2B1F /* ScoreCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardVC.swift; sourceTree = "<group>"; };
 		849A984620575393005F2B1F /* ScoreCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardPresenter.swift; sourceTree = "<group>"; };
@@ -56,13 +81,12 @@
 		84C1193F205670560003D0B6 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		84FFADB32056164700DB33DA /* golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FFADB62056164700DB33DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84FFADB82056164700DB33DA /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
+		84FFADB82056164700DB33DA /* LeaderBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardVC.swift; sourceTree = "<group>"; };
 		84FFADBB2056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84FFADBD2056164700DB33DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FFADC02056164700DB33DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84FFADC22056164700DB33DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FFADC72056164700DB33DA /* golfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = golfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84FFADCB2056164700DB33DA /* golfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golfTests.swift; sourceTree = "<group>"; };
 		84FFADCD2056164700DB33DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FFADD620564CA000DB33DA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,9 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8421B7C320BE7A65006F46C0 /* Then.framework in Frameworks */,
-				8495C1F92056738A004BC2F1 /* SwiftyJSON.framework in Frameworks */,
-				8420D2E3206EEA5600C2CD4E /* Alamofire.framework in Frameworks */,
+				8421B7D020BF8EAE006F46C0 /* Alamofire.framework in Frameworks */,
+				8421B7D420BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B2D5A320643D6000EA25C3 /* SwiftyJSON.framework in Frameworks */,
+				8421B7D120BF8EAE006F46C0 /* Alamofire.framework in Frameworks */,
+				8421B7D520BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,24 +116,52 @@
 		8421B7BE20BE79F1006F46C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */,
+				8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */,
+				8421B7CE20BF8EAE006F46C0 /* Then.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		844865B42056D6240076B976 /* AppControl */ = {
+		8421B7D920BF9303006F46C0 /* LeaderBoard */ = {
+			isa = PBXGroup;
+			children = (
+				84FFADB82056164700DB33DA /* LeaderBoardVC.swift */,
+				844865B22056839E0076B976 /* LeaderBoardPresenter.swift */,
+				8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */,
+				8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */,
+				8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */,
+				8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */,
+			);
+			path = LeaderBoard;
+			sourceTree = "<group>";
+		};
+		8421B7DA20BF930C006F46C0 /* Player_ScoreCard */ = {
+			isa = PBXGroup;
+			children = (
+				849A984420574EAA005F2B1F /* ScoreCardVC.swift */,
+				849A984620575393005F2B1F /* ScoreCardPresenter.swift */,
+				8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */,
+				8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */,
+				8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */,
+			);
+			path = Player_ScoreCard;
+			sourceTree = "<group>";
+		};
+		844865B42056D6240076B976 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				84FFADB62056164700DB33DA /* AppDelegate.swift */,
+				84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */,
 				84FFADC22056164700DB33DA /* Info.plist */,
 			);
-			path = AppControl;
+			path = App;
 			sourceTree = "<group>";
 		};
 		844865B52056D6340076B976 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				84FFADBA2056164700DB33DA /* Main.storyboard */,
-				84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -127,10 +179,8 @@
 		844865B72056D6640076B976 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84FFADB82056164700DB33DA /* LeaderboardVC.swift */,
-				844865B22056839E0076B976 /* LeaderBoardPresenter.swift */,
-				849A984420574EAA005F2B1F /* ScoreCardVC.swift */,
-				849A984620575393005F2B1F /* ScoreCardPresenter.swift */,
+				8421B7D920BF9303006F46C0 /* LeaderBoard */,
+				8421B7DA20BF930C006F46C0 /* Player_ScoreCard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -138,8 +188,8 @@
 		844865B82056D68B0076B976 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				844865B02056836E0076B976 /* Golf.swift */,
 				844865B92056D6BF0076B976 /* GolfData.swift */,
+				84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,9 +199,6 @@
 			children = (
 				84FFADB52056164700DB33DA /* golf */,
 				849A984220573B8A005F2B1F /* fastlane */,
-				8420D2E2206EEA5600C2CD4E /* Alamofire.framework */,
-				8495C1F82056738A004BC2F1 /* SwiftyJSON.framework */,
-				8421B7C220BE7A65006F46C0 /* Then.framework */,
 				84FFADCA2056164700DB33DA /* golfTests */,
 				84FFADB42056164700DB33DA /* Products */,
 				8421B7BE20BE79F1006F46C0 /* Frameworks */,
@@ -170,11 +217,11 @@
 		84FFADB52056164700DB33DA /* golf */ = {
 			isa = PBXGroup;
 			children = (
-				844865B42056D6240076B976 /* AppControl */,
-				844865B62056D6530076B976 /* Workers */,
-				844865B82056D68B0076B976 /* Models */,
 				844865B72056D6640076B976 /* ViewControllers */,
 				844865B52056D6340076B976 /* Storyboards */,
+				844865B82056D68B0076B976 /* Models */,
+				844865B62056D6530076B976 /* Workers */,
+				844865B42056D6240076B976 /* App */,
 				84FFADBD2056164700DB33DA /* Assets.xcassets */,
 			);
 			path = golf;
@@ -183,9 +230,7 @@
 		84FFADCA2056164700DB33DA /* golfTests */ = {
 			isa = PBXGroup;
 			children = (
-				84FFADCB2056164700DB33DA /* golfTests.swift */,
-				8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */,
-				84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */,
+				8421B7E820BFC32F006F46C0 /* golfTests.swift */,
 				84FFADCD2056164700DB33DA /* Info.plist */,
 			);
 			path = golfTests;
@@ -314,16 +359,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421B7EC20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */,
 				844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */,
 				849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */,
-				84FFADB92056164700DB33DA /* LeaderboardVC.swift in Sources */,
+				84FFADB92056164700DB33DA /* LeaderBoardVC.swift in Sources */,
 				84FFADD720564CA000DB33DA /* APIService.swift in Sources */,
 				849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */,
 				840197C420829D1C00E45D75 /* Utils.swift in Sources */,
 				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
-				844865B12056836E0076B976 /* Golf.swift in Sources */,
+				8421B7CB20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */,
+				8477A60920C0FBB200D1F910 /* ScoreCardModels.swift in Sources */,
+				8421B7EF20BFD782006F46C0 /* ScoreCardRouter.swift in Sources */,
 				84C11940205670560003D0B6 /* EndPoints.swift in Sources */,
 				84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */,
+				8421B7D720BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */,
+				8421B7DC20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,9 +381,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421B7DE20BFBF7C006F46C0 /* ScoreCardPresenter.swift in Sources */,
 				84B2D5A220643AF400EA25C3 /* GolfDataTests.swift in Sources */,
+				8421B7E120BFBFF9006F46C0 /* LeaderBoardPresenter.swift in Sources */,
+				8421B7E520BFC28A006F46C0 /* Utils.swift in Sources */,
+				8421B7E220BFC1DE006F46C0 /* LeaderBoardVC.swift in Sources */,
 				8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */,
-				84FFADCC2056164700DB33DA /* golfTests.swift in Sources */,
+				8421B7DF20BFBF89006F46C0 /* GolfData.swift in Sources */,
+				8421B7F020BFD782006F46C0 /* ScoreCardRouter.swift in Sources */,
+				8421B7E020BFBF9D006F46C0 /* ScoreCardVC.swift in Sources */,
+				8477A60A20C196AE00D1F910 /* ScoreCardModels.swift in Sources */,
+				8421B7ED20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */,
+				8421B7CC20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */,
+				8421B7EA20BFC32F006F46C0 /* golfTests.swift in Sources */,
+				8421B7D820BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */,
+				8421B7E420BFC27D006F46C0 /* APIService.swift in Sources */,
+				8421B7E320BFC1F0006F46C0 /* EndPoints.swift in Sources */,
+				8421B7DD20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +551,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/golf/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
@@ -513,7 +577,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/golf/AppControl/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/golf/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
@@ -537,6 +601,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -560,6 +625,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
