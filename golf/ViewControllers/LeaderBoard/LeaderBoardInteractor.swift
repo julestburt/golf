@@ -1,79 +1,56 @@
 //
-//  Golf.swift
+//  LeaderBoardInteractor.swift
 //  golf
 //
-//  Created by Jules Burt on 2018-03-12.
+//  Created by Jules Burt on 2018-05-30.
 //  Copyright © 2018 bethegame Inc. All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
-import Then
 
 // Please note this Class doesn't support getting both Leaderboards simultaneously.
 
-protocol golfLeaderBoardLogic {
+protocol LeaderBoardBusinessLogic {
     func getLeaderBoard()
     func getCalculatedLeaderBoard()
-    func setChosenPlayer(_ selection:Int)
 }
 
-class Golf : golfLeaderBoardLogic {
-    
-    static let data = Golf()
-    var leaderBoardPresenter:LeaderBoardPresenter?
-    private var scoreCardPresenter:ScoreCardPresenter?
-    var endPoints:EndPoints? = EndPoints()
-    
-    var leaderBoard:[Entries]? = nil
+protocol LeaderBoardDataStore {
+    var leaderBoard:[Entries]? { get }
+    var playerList:[Int:Players]? { get }
+}
+
+class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
+        
+    var leaderBoard:[Entries]?
     var playerList:[Int:Players]? = [:]
     var event:Event? = nil
     var courseDetail:Course? = nil
     
-    private var selectedPlayer:Int? = nil
+    var leaderBoardPresenter:LeaderBoardPresenter?
+    private var scoreCardPresenter:ScoreCardPresenter?
 
+    var endPoints:EndPoints? = EndPoints()
     let chosenGame = 1000
 
-    // TODO: SECOND SCREEN SCORE CARD NEEDS FINISHING
-    func setChosenPlayer(_ selection:Int) {
-        selectedPlayer = selection
-    }
-    func getPlayerScoreCard() {
-        
-        // assume golf class already has current data - so no new API for now
-        if let selected_id = selectedPlayer, let scoreDetails = calculateScoreCard(chosen:selected_id) {
-            scoreCardPresenter?.showScoreCardFromGolf(scoreDetails)
-        } else {
-            print("scores missing")
-        }
-    }
-    func calculateScoreCard(chosen:Int) -> [String]? {
-        var scores:[String] = []
-        if let course = self.courseDetail, let _ = event, let _ = playerList {
-            for _ in scores {
-                scores.append("Scores")
-            }
-        }
-        return scores
-    }
-    
     // Get the complete leaderboard direct from the API
-    func getLeaderBoard() {
-
+    internal func getLeaderBoard() {
+        
         guard !inProgressAlready else { return }
         inProgressAlready = true
         Utils.lock(obj: endPointCount) {
             endPointCount = 2
         }
-
+        
         endPoints?.getLeaderboard(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
-                    self.leaderBoard = []
-                    for (_, eachEntryJSON) in data {
-                        let entry = Entries(json: eachEntryJSON)
-                        self.leaderBoard?.append(entry)
-                    }
+                self.leaderBoard = []
+                for (_, eachEntryJSON) in data {
+                    let entry = Entries(json: eachEntryJSON)
+                    self.leaderBoard?.append(entry)
+                }
             case .Error(let error, let code, let message):
                 break
             }
@@ -83,11 +60,11 @@ class Golf : golfLeaderBoardLogic {
         endPoints?.getPlayers(completion: { result in
             switch result {
             case .Success(let data):
-                    self.playerList = [:]
-                    for (_, eachEntryJSON) in data {
-                        let player = Players(json: eachEntryJSON)
-                        self.playerList?[player.ID] = player
-                    }
+                self.playerList = [:]
+                for (_, eachEntryJSON) in data {
+                    let player = Players(json: eachEntryJSON)
+                    self.playerList?[player.ID] = player
+                }
             case .Error(let error, let code, let message):
                 break
             }
@@ -101,7 +78,8 @@ class Golf : golfLeaderBoardLogic {
             guard endPointCount == 0 else { return }
             inProgressAlready = false
             if let leader = self.leaderBoard, let players = self.playerList {
-                leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players, title:nil)
+                let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: nil)
+                leaderBoardPresenter?.showLeaderBoard(response)
             } else {
                 print("problem data missing")
             }
@@ -112,15 +90,13 @@ class Golf : golfLeaderBoardLogic {
     private var inProgressAlready:Bool = false
     private var _endPointCount: Int = 2
     private var endPointCount: Int {
-        get {
-            return _endPointCount
-        }
-        set {
-            _endPointCount = newValue
-        }
+            get {
+                return _endPointCount
+            }
+            set {
+                _endPointCount = newValue
+            }
     }
-    
-    
     
     internal func getCalculatedLeaderBoard () {
         guard !inProgressAlready else { return }
@@ -128,47 +104,43 @@ class Golf : golfLeaderBoardLogic {
         Utils.lock(obj: endPointCount) {
             endPointCount = 3
         }
-
+        
         endPoints?.getEvent(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
                 self.event = Event(json: data)
                 
-                getCourse()
+                self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
+                    switch result {
+                    case .Success(let data):
+                        let course = Course(json: data)
+                        self.courseDetail = course
+                    case .Error(let error, let code, message: let message):
+                        break
+                    }
+                    checkCalculatedReturns()
+                })
             case .Error(let error, let code, let message):
                 break
             }
             checkCalculatedReturns()
-
+            
         })
         
-    
+        
         endPoints?.getPlayers(completion: { result in
             switch result {
             case .Success(let data):
-                    self.playerList = [:]
-                    for (_, eachEntryJSON) in data {
-                        let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
-                        self.playerList?[player.ID] = player
-                    }
+                self.playerList = [:]
+                for (_, eachEntryJSON) in data {
+                    let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
+                    self.playerList?[player.ID] = player
+                }
             case .Error(let error, let code, let message):
                 break
             }
             checkCalculatedReturns()
         })
-    
-        func getCourse() {
-            self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
-                switch result {
-                case .Success(let data):
-                    let course = Course(json: data)
-                    self.courseDetail = course
-                case .Error(let error, let code, message: let message):
-                    break
-                }
-                checkCalculatedReturns()
-            })
-        }
         
         func checkCalculatedReturns() {
             Utils.lock(obj: endPointCount) {
@@ -179,7 +151,8 @@ class Golf : golfLeaderBoardLogic {
             if let event = self.event, let players = self.playerList, let course = self.courseDetail {
                 calculateLeaderBoard(event: event, players:players, course:course)
                 if let leader = self.leaderBoard {
-                    leaderBoardPresenter?.showLeaderFromAPIAggregate(leader, players: players, title:courseDetail?.name)
+                    let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: courseDetail?.name)
+                    leaderBoardPresenter?.showLeaderBoard(response)
                 }
             } else {
                 print("likely no leaderboard")
@@ -206,7 +179,7 @@ class Golf : golfLeaderBoardLogic {
                 return entry1.score < entry2.score
             })
         }
-
+        
         // each participant is a player's array of scores
         if let playersScores = event.participants {
             for (player_id, rounds) in playersScores {

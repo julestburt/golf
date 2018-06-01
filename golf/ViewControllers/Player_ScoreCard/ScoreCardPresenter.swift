@@ -8,20 +8,22 @@
 
 import Foundation
 
-protocol ScoreCardAction:class {
+protocol ScoreCardPresenterLogic {
+    func showScoreCardFromGolf(_ scoredata:[String])
     func present(scorecard:[String])
 }
 
 
-class ScoreCardPresenter: NSObject {
+class ScoreCardPresenter : ScoreCardPresenterLogic {
     
-    var delegate:ScoreCardAction? = nil
+    var viewController:ScoreCardVC_Logic?
     
-    init(delegate:ScoreCardAction) {
-        self.delegate = delegate
-    }
-
     func showScoreCardFromGolf(_ scoredata:[String]) {
         
     }
+    
+    func present(scorecard:[String]) {
+        
+    }
+
 }

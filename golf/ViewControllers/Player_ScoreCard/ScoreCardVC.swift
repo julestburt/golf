@@ -9,48 +9,65 @@
 import Foundation
 import UIKit
 
-enum scoreCard {
-    enum getPlayerScoreCard {
-        struct rowStrings {
-            let title:String
-            let holeNumber:[Int:String]
-            let summaryColum:String
-            let totalColumn:String
-            let finalScore:String
-        }
-        struct halfRound {
-            let hole:rowStrings
-            let par:rowStrings
-            let Score:rowStrings
-        }
-        struct viewModel {
-            let rounds:[Int:halfRound]
-        }
-        
-    }
-}
-
 protocol ScoreCardVC_Logic {
-    func displayScoreCard(show:scoreCard.getPlayerScoreCard.viewModel)
+    func displayScoreCard(show:ScoreCard.getPlayerScoreCard.viewModel)
 }
 
 class ScoreCardVC: UIViewController, ScoreCardVC_Logic {
-    func displayScoreCard(show: scoreCard.getPlayerScoreCard.viewModel) {
+    func displayScoreCard(show: ScoreCard.getPlayerScoreCard.viewModel) {
         scoreTable.reloadData()
     }
     
-
-//    let golf = Golf.data
+    var router: (NSObjectProtocol & ScoreCardRoutingLogic & ScoreCardDataPassing)?
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scoreTable: UITableView!
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setUp()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setUp()
+    }
+
     override func viewDidLoad() {
         let back = UIBarButtonItem.init(title: NSLocalizedString("Back", comment: ""), style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.topItem?.backBarButtonItem = back
         scoreTable.delegate = self
         scoreTable.dataSource = self
+        if let player = interactor?.selectedPlayer {
+            interactor?.getPlayerScoreCard(player)
+        } else {
+            /* show an error? */
+        }
     }
+    
+    func setUp() {
+        let viewController = self
+        let interactor = ScoreCardInteractor()
+        let presenter = ScoreCardPresenter()
+        let router = ScoreCardRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.scoreCardPresenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    var interactor:ScoreCardInteractor?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+
     
 }
 

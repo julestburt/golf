@@ -43,16 +43,18 @@ class leaderBoardPresenterTests: XCTestCase {
 
         // I faked the view, to get the output of leaderBoardPresenter, but then I also changed code in presenter to help test that function specifically...see below
         
-        class FakeVC : LeaderBoardVCDisplayLogic {
-            var presentationOutput:leaderBoard.showLeaderBoard.ViewModel? = nil
-            func present(viewModel: leaderBoard.showLeaderBoard.ViewModel) {
+        class spyVC : ViewActions {
+            var presentationOutput:LeaderBoard.presentLeaderBoard.ViewModel? = nil
+            func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel) {
                 presentationOutput = viewModel
             }
         }
-        let fakeVC:FakeVC = FakeVC()
-        leaderBoardPresenter.viewController = fakeVC
-        leaderBoardPresenter.showLeaderFromAPIAggregate(leaderBoard, players: players, title:nil)
-        var viewModel = (fakeVC.presentationOutput)!
+        
+        let viewController = spyVC()
+        leaderBoardPresenter.viewController = viewController
+        
+        leaderBoardPresenter.showLeaderBoard(LeaderBoard.presentLeaderBoard.Response(leaderboard: leaderBoard, players: players, title: nil))
+        var viewModel = (viewController.presentationOutput)!
         
         XCTAssertEqual(viewModel.leaderBoard[1].thru, "F")
         
@@ -66,8 +68,9 @@ class leaderBoardPresenterTests: XCTestCase {
         
         XCTAssertEqual(viewModel.tournamentTitle, "Golf Leaderboard")
         
-        leaderBoardPresenter.showLeaderFromAPIAggregate(leaderBoard, players: players, title:"Test Title")
-        viewModel = (fakeVC.presentationOutput)!
+        let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leaderBoard, players: players, title: "Test Title")
+        leaderBoardPresenter.showLeaderBoard(response)
+        viewModel = (viewController.presentationOutput)!
         XCTAssertEqual(viewModel.tournamentTitle, "Test Title")
 
    }
