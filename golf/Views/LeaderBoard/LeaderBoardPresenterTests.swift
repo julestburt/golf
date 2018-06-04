@@ -27,7 +27,8 @@ class leaderBoardPresenterTests: XCTestCase {
         let entry2 = Entries(score: -2, player_id: 1002, thru: 18, total: 7, rank: nil)
         let entry3 = Entries(score: 0, player_id: 1003, thru: 12, total: 45, rank: nil)
         let entry4 = Entries(score: 0, player_id: 1004, thru: 0, total: 0, rank: nil)
-        let leaderBoard = [entry1, entry2, entry3, entry4]
+        let entry5 = Entries(score: 0, player_id: 9999, thru: 0, total: 0, rank: nil)
+        let leaderBoard = [entry1, entry2, entry3, entry4, entry5]
         
         let player1 = Players(ID: 1001, firstName: "Jules", lastName: "Burt", countryCode: "UK")
         let player2 = Players(ID: 1010, firstName: "Steve", lastName: "Jones", countryCode: "US")
@@ -67,6 +68,8 @@ class leaderBoardPresenterTests: XCTestCase {
         XCTAssertEqual(viewModel.leaderBoard[0].playerName, "Jules Burt")
         
         XCTAssertEqual(viewModel.tournamentTitle, "Golf Leaderboard")
+        
+        XCTAssertEqual(viewModel.leaderBoard[4].playerName, "missing player - name?")
         
         let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leaderBoard, players: players, title: "Test Title")
         leaderBoardPresenter.showLeaderBoard(response)

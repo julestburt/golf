@@ -35,14 +35,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
     let chosenGame = 1000
 
     // Get the complete leaderboard direct from the API
-    internal func getLeaderBoard() {
-        
-        guard !inProgressAlready else { return }
-        inProgressAlready = true
-        Utils.lock(obj: endPointCount) {
-            endPointCount = 2
-        }
-        
+    fileprivate func getLeaderBoardScores() {
         endPoints?.getLeaderboard(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
@@ -54,9 +47,11 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
             case .Error(let error, let code, let message):
                 break
             }
-            checkLeaderBoardReturns()
+            self.checkLeaderBoardReturns()
         })
-        
+    }
+    
+    fileprivate func getPlayers() {
         endPoints?.getPlayers(completion: { result in
             switch result {
             case .Success(let data):
@@ -68,24 +63,37 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
             case .Error(let error, let code, let message):
                 break
             }
-            checkLeaderBoardReturns()
+            self.checkLeaderBoardReturns()
         })
-        
-        func checkLeaderBoardReturns() {
-            Utils.lock(obj: endPointCount) {
-                endPointCount -= 1
-            }
-            guard endPointCount == 0 else { return }
-            inProgressAlready = false
-            if let leader = self.leaderBoard, let players = self.playerList {
-                let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: nil)
-                leaderBoardPresenter?.showLeaderBoard(response)
-            } else {
-                print("problem data missing")
-            }
-        }
     }
     
+    internal func getLeaderBoard() {
+        
+        guard !inProgressAlready else { return }
+        inProgressAlready = true
+        Utils.lock(obj: endPointCount) {
+            endPointCount = 2
+        }
+        
+        getLeaderBoardScores()
+        getPlayers()
+        
+    }
+
+    func checkLeaderBoardReturns() {
+        Utils.lock(obj: endPointCount) {
+            endPointCount -= 1
+        }
+        guard endPointCount == 0 else { return }
+        inProgressAlready = false
+        if let leader = self.leaderBoard, let players = self.playerList {
+            let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: nil)
+            leaderBoardPresenter?.showLeaderBoard(response)
+        } else {
+            print("problem data missing")
+        }
+    }
+
     // Basic check for number of endpoints used
     private var inProgressAlready:Bool = false
     private var _endPointCount: Int = 2
@@ -98,13 +106,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
             }
     }
     
-    internal func getCalculatedLeaderBoard () {
-        guard !inProgressAlready else { return }
-        inProgressAlready = true
-        Utils.lock(obj: endPointCount) {
-            endPointCount = 3
-        }
-        
+    fileprivate func getEvent() {
         endPoints?.getEvent(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
@@ -118,14 +120,24 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
                     case .Error(let error, let code, message: let message):
                         break
                     }
-                    checkCalculatedReturns()
+                    self.checkCalculatedReturns()
                 })
             case .Error(let error, let code, let message):
                 break
             }
-            checkCalculatedReturns()
+            self.checkCalculatedReturns()
             
         })
+    }
+    
+    internal func getCalculatedLeaderBoard () {
+        guard !inProgressAlready else { return }
+        inProgressAlready = true
+        Utils.lock(obj: endPointCount) {
+            endPointCount = 3
+        }
+        
+        getEvent()
         
         
         endPoints?.getPlayers(completion: { result in
@@ -139,27 +151,28 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
             case .Error(let error, let code, let message):
                 break
             }
-            checkCalculatedReturns()
+            self.checkCalculatedReturns()
         })
         
-        func checkCalculatedReturns() {
-            Utils.lock(obj: endPointCount) {
-                endPointCount -= 1
-            }
-            guard endPointCount == 0 else { return }
-            inProgressAlready = false
-            if let event = self.event, let players = self.playerList, let course = self.courseDetail {
-                calculateLeaderBoard(event: event, players:players, course:course)
-                if let leader = self.leaderBoard {
-                    let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: courseDetail?.name)
-                    leaderBoardPresenter?.showLeaderBoard(response)
-                }
-            } else {
-                print("likely no leaderboard")
-            }
-        }
     }
     
+    func checkCalculatedReturns() {
+        Utils.lock(obj: endPointCount) {
+            endPointCount -= 1
+        }
+        guard endPointCount == 0 else { return }
+        inProgressAlready = false
+        if let event = self.event, let players = self.playerList, let course = self.courseDetail {
+            calculateLeaderBoard(event: event, players:players, course:course)
+            if let leader = self.leaderBoard {
+                let response = LeaderBoard.presentLeaderBoard.Response(leaderboard: leader, players: players, title: courseDetail?.name)
+                leaderBoardPresenter?.showLeaderBoard(response)
+            }
+        } else {
+            print("likely no leaderboard")
+        }
+    }
+
     private func calculateLeaderBoard(event:Event, players:[Int:Players], course:Course) {
         var leader = [Entries]()
         

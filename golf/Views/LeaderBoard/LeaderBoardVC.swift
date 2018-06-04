@@ -9,9 +9,10 @@
 /////////////////////////////////////////////////////////////////////////////////
 import UIKit
 
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
 // MARK: View Actions
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+
 protocol ViewActions : class {
     func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel)
 }
@@ -23,23 +24,25 @@ extension LeaderBoardVC: ViewActions {
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// MARK: Interacter Actions
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+// MARK: Interactor Actions
+//------------------------------------------------------------------------------
+
 extension LeaderBoardVC {
     func getLeaderBoard() {
-        if alternate {
+        if alternateRoute {
             interactor?.getCalculatedLeaderBoard()
         } else {
             interactor?.getLeaderBoard()
         }
-        alternate = alternate ? false : true
+        alternateRoute = alternateRoute ? false : true
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// MARK: ViewController
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+// MARK: View Controller
+//------------------------------------------------------------------------------
+
 class LeaderBoardVC: UIViewController {
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +83,7 @@ class LeaderBoardVC: UIViewController {
     var interactor:LeaderBoardBusinessLogic? = nil
     var router:(NSObjectProtocol & LeaderBoardRoutingLogic & LeaderBoardDataPassing)?
     var leaderboardData:[LeaderBoard.presentLeaderBoard.ViewModel.LeaderBoardEntry]? = nil
-    var alternate:Bool = true
+    var alternateRoute:Bool = true
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
@@ -91,9 +94,10 @@ class LeaderBoardVC: UIViewController {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // MARK: UITable
-    ////////////////////////////////////////////////////////////////////////////////
+    //------------------------------------------------------------------------------
+    // MARK: UITableView
+    //------------------------------------------------------------------------------
+
 
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
@@ -109,9 +113,10 @@ class LeaderBoardVC: UIViewController {
         table.reloadData()
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+    //------------------------------------------------------------------------------
     // MARK: Refresh Control
-    ////////////////////////////////////////////////////////////////////////////////
+    //------------------------------------------------------------------------------
+    
     let refreshControl = UIRefreshControl()
     
     fileprivate func addRefreshControl() {
@@ -123,7 +128,9 @@ class LeaderBoardVC: UIViewController {
         }
     }
     
-    @objc func refreshPulled() { getLeaderBoard() }
+    @objc func refreshPulled() {
+        getLeaderBoard()
+    }
     
     func resetRefreshControl() {
         if refreshControl.isRefreshing {
@@ -132,9 +139,9 @@ class LeaderBoardVC: UIViewController {
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// MARK: UITableView Delegate / DataSource
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+// MARK: UITableView DataSource / Delegate
+//------------------------------------------------------------------------------
 
 extension LeaderBoardVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -172,35 +179,6 @@ extension LeaderBoardVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// MARK: UITableView
-////////////////////////////////////////////////////////////////////////////////
-
-class LeaderBoardCell: UITableViewCell {
-    @IBOutlet weak var pos: UILabel!
-    @IBOutlet weak var player: UILabel!
-    @IBOutlet weak var tot: UILabel!
-    @IBOutlet weak var score: UILabel!
-    @IBOutlet weak var thru: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        pos.text = "-"
-        player.text = "-"
-        tot.text = "-"
-        score.text = "-"
-        thru.text = "-"
-    }
-    
-    func entryDetails(pos:String,player:String,tot:String,score:String,thru:String) {
-        self.pos.text = pos
-        self.player.text = player
-        self.tot.text = tot
-        self.score.text = score
-        self.thru.text = thru
     }
 }
 
