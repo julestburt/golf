@@ -13,7 +13,7 @@
         <!--Leader BoardVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="LeaderBoardVC" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeaderBoardVC" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="LeaderBoardVC" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2Z-aS-heh">
                                                     <rect key="frame" x="271" y="12" width="45" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="l2a-7o-rCh"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="l2a-7o-rCh"/>
                                                         <constraint firstAttribute="height" constant="21" id="nLW-hM-qxI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -109,6 +109,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="o2Z-aS-heh" firstAttribute="centerY" secondItem="NCX-bO-x2E" secondAttribute="centerY" id="He8-vi-5U5"/>
+                                                <constraint firstItem="8em-qg-uf4" firstAttribute="leading" secondItem="esm-TC-A09" secondAttribute="trailing" constant="130" id="IG3-6e-Fr8"/>
                                                 <constraint firstItem="wPY-q7-fyw" firstAttribute="centerY" secondItem="NCX-bO-x2E" secondAttribute="centerY" id="IeZ-bQ-2Q1"/>
                                                 <constraint firstItem="esm-TC-A09" firstAttribute="leading" secondItem="9Q0-rQ-G6H" secondAttribute="trailing" constant="8" id="MEy-7B-jb9"/>
                                                 <constraint firstAttribute="trailing" secondItem="wPY-q7-fyw" secondAttribute="trailing" constant="15" id="MWo-Pg-8E6"/>
@@ -231,7 +232,7 @@
         <!--Score CardVC-->
         <scene sceneID="GGr-vB-6wV">
             <objects>
-                <viewController storyboardIdentifier="ScoreCardVC" id="X04-D2-CX1" customClass="ScoreCardVC" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScoreVC" id="X04-D2-CX1" customClass="ScoreCardVC" customModule="golf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Bx-XS-5Hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

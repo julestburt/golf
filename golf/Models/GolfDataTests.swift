@@ -43,6 +43,7 @@ class GolfDataTests: XCTestCase {
         
         let stringJSON = "{\"participants\":[{\"holes\":[4,4,4,4,4,2,4,4,3,4,4,2],\"player_id\":1005},{\"holes\":[],\"player_id\":68787}],\"id\":1000,\"title\":\"Masters\",\"end_date\":\"2018-04-08\",\"course_id\":9000,\"start_date\":\"2018-04-05\"}".data(using: String.Encoding.utf8)
         let json = JSON(data:stringJSON!)
+        print(json)
         let event = Event(json: json)
         XCTAssert((event.participants![1005])!.count == 12)
         XCTAssert((event.participants![68787])!.count == 0)

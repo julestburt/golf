@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-protocol ScoreCardVC_Logic {
-    func displayScoreCard(show:ScoreCard.getPlayerScoreCard.viewModel)
+protocol ScoreCardVCLogic {
+    func displayScoreCard(viewModel:ScoreCard.getPlayerScoreCard.viewModel)
 }
 
-class ScoreCardVC: UIViewController, ScoreCardVC_Logic {
-    func displayScoreCard(show: ScoreCard.getPlayerScoreCard.viewModel) {
-        scoreTable.reloadData()
-    }
-    
-    var router: (NSObjectProtocol & ScoreCardRoutingLogic & ScoreCardDataPassing)?
+class ScoreCardVC: UIViewController, ScoreCardVCLogic {
+    var rounds:[Int:halfRound]? = nil
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scoreTable: UITableView!
-    
+    var displayScoreCardCalled:Bool = false
+    func displayScoreCard(viewModel: ScoreCard.getPlayerScoreCard.viewModel) {
+        rounds = viewModel.rounds
+        scoreTable.reloadData()
+        displayScoreCardCalled = true
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setUp()
@@ -38,11 +38,8 @@ class ScoreCardVC: UIViewController, ScoreCardVC_Logic {
         navigationController?.navigationBar.topItem?.backBarButtonItem = back
         scoreTable.delegate = self
         scoreTable.dataSource = self
-        if let player = interactor?.selectedPlayer {
-            interactor?.getPlayerScoreCard(player)
-        } else {
-            /* show an error? */
-        }
+        let request = ScoreCard.getPlayerScoreCard.request()
+        interactor?.getPlayerScoreCard(request)
     }
     
     func setUp() {
@@ -57,8 +54,11 @@ class ScoreCardVC: UIViewController, ScoreCardVC_Logic {
         router.viewController = viewController
         router.dataStore = interactor
     }
-    var interactor:ScoreCardInteractor?
-    
+    var interactor:ScoreCardBusinessLogic?
+    var router: (NSObjectProtocol & ScoreCardRoutingLogic & ScoreCardDataPassing)?
+    @IBOutlet weak var scoreTable: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -96,7 +96,7 @@ extension ScoreCardVC : UITableViewDelegate, UITableViewDataSource {
 }
 
 class ScoreCardRowCell : UITableViewCell {
-    
+
     @IBOutlet weak var hole: UILabel!
     
     @IBOutlet weak var front9: UILabel!
