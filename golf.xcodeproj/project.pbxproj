@@ -9,33 +9,29 @@
 /* Begin PBXBuildFile section */
 		840197C420829D1C00E45D75 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840197C320829D1C00E45D75 /* Utils.swift */; };
 		8421B7CB20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */; };
-		8421B7CC20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */; };
 		8421B7D020BF8EAE006F46C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */; };
 		8421B7D120BF8EAE006F46C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */; };
 		8421B7D420BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */; };
 		8421B7D520BF8EAE006F46C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */; };
 		8421B7D720BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */; };
-		8421B7D820BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */; };
 		8421B7DC20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */; };
-		8421B7DD20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */; };
-		8421B7DE20BFBF7C006F46C0 /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
-		8421B7DF20BFBF89006F46C0 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
-		8421B7E020BFBF9D006F46C0 /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
-		8421B7E120BFBFF9006F46C0 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
-		8421B7E220BFC1DE006F46C0 /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADB82056164700DB33DA /* LeaderBoardVC.swift */; };
-		8421B7E320BFC1F0006F46C0 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoints.swift */; };
-		8421B7E420BFC27D006F46C0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADD620564CA000DB33DA /* APIService.swift */; };
-		8421B7E520BFC28A006F46C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840197C320829D1C00E45D75 /* Utils.swift */; };
 		8421B7EA20BFC32F006F46C0 /* golfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7E820BFC32F006F46C0 /* golfTests.swift */; };
 		8421B7EC20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */; };
-		8421B7ED20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */; };
 		8421B7EF20BFD782006F46C0 /* ScoreCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */; };
-		8421B7F020BFD782006F46C0 /* ScoreCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */; };
 		8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */; };
 		844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B22056839E0076B976 /* LeaderBoardPresenter.swift */; };
 		844865BA2056D6BF0076B976 /* GolfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844865B92056D6BF0076B976 /* GolfData.swift */; };
 		8477A60920C0FBB200D1F910 /* ScoreCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */; };
-		8477A60A20C196AE00D1F910 /* ScoreCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */; };
+		8477A61520C44AA000D1F910 /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A61420C44AA000D1F910 /* LeaderBoardCell.swift */; };
+		8477A61620C44AA000D1F910 /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A61420C44AA000D1F910 /* LeaderBoardCell.swift */; };
+		8477A61720C4553D00D1F910 /* ScoreCardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60B20C3450B00D1F910 /* ScoreCardViewControllerTests.swift */; };
+		8477A61820C4554600D1F910 /* ScoreCardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60C20C3450B00D1F910 /* ScoreCardInteractorTests.swift */; };
+		8477A61920C4554A00D1F910 /* ScoreCardWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60D20C3450B00D1F910 /* ScoreCardWorkerTests.swift */; };
+		8477A61A20C4554C00D1F910 /* ScoreCardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A60E20C3450B00D1F910 /* ScoreCardPresenterTests.swift */; };
+		8477A61E20C47C3400D1F910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
+		8477A62F20C51F3D00D1F910 /* ScoreCardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A62E20C51F3C00D1F910 /* ScoreCardWorker.swift */; };
+		8477A63120C51F7800D1F910 /* LeaderBoardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */; };
+		8477A63320C5215200D1F910 /* UIViewVIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A63220C5215200D1F910 /* UIViewVIP.swift */; };
 		849A984320573B8A005F2B1F /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 849A984220573B8A005F2B1F /* fastlane */; };
 		849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
 		849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
@@ -74,6 +70,14 @@
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
 		8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardModels.swift; sourceTree = "<group>"; };
+		8477A60B20C3450B00D1F910 /* ScoreCardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardViewControllerTests.swift; sourceTree = "<group>"; };
+		8477A60C20C3450B00D1F910 /* ScoreCardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardInteractorTests.swift; sourceTree = "<group>"; };
+		8477A60D20C3450B00D1F910 /* ScoreCardWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardWorkerTests.swift; sourceTree = "<group>"; };
+		8477A60E20C3450B00D1F910 /* ScoreCardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardPresenterTests.swift; sourceTree = "<group>"; };
+		8477A61420C44AA000D1F910 /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
+		8477A62E20C51F3C00D1F910 /* ScoreCardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardWorker.swift; sourceTree = "<group>"; };
+		8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardWorker.swift; sourceTree = "<group>"; };
+		8477A63220C5215200D1F910 /* UIViewVIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewVIP.swift; sourceTree = "<group>"; };
 		849A984220573B8A005F2B1F /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		849A984420574EAA005F2B1F /* ScoreCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardVC.swift; sourceTree = "<group>"; };
 		849A984620575393005F2B1F /* ScoreCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardPresenter.swift; sourceTree = "<group>"; };
@@ -132,20 +136,26 @@
 				8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */,
 				8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */,
 				8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */,
+				8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */,
 			);
 			path = LeaderBoard;
 			sourceTree = "<group>";
 		};
-		8421B7DA20BF930C006F46C0 /* Player_ScoreCard */ = {
+		8421B7DA20BF930C006F46C0 /* ScoreCard */ = {
 			isa = PBXGroup;
 			children = (
 				849A984420574EAA005F2B1F /* ScoreCardVC.swift */,
+				8477A60B20C3450B00D1F910 /* ScoreCardViewControllerTests.swift */,
 				849A984620575393005F2B1F /* ScoreCardPresenter.swift */,
+				8477A60E20C3450B00D1F910 /* ScoreCardPresenterTests.swift */,
 				8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */,
+				8477A60C20C3450B00D1F910 /* ScoreCardInteractorTests.swift */,
 				8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */,
 				8477A60820C0FBB200D1F910 /* ScoreCardModels.swift */,
+				8477A60D20C3450B00D1F910 /* ScoreCardWorkerTests.swift */,
+				8477A62E20C51F3C00D1F910 /* ScoreCardWorker.swift */,
 			);
-			path = Player_ScoreCard;
+			path = ScoreCard;
 			sourceTree = "<group>";
 		};
 		844865B42056D6240076B976 /* App */ = {
@@ -170,19 +180,21 @@
 			isa = PBXGroup;
 			children = (
 				84FFADD620564CA000DB33DA /* APIService.swift */,
+				844865B42056D6240076B976 /* App */,
 				840197C320829D1C00E45D75 /* Utils.swift */,
 				84C1193F205670560003D0B6 /* EndPoints.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
 		};
-		844865B72056D6640076B976 /* ViewControllers */ = {
+		844865B72056D6640076B976 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8421B7D920BF9303006F46C0 /* LeaderBoard */,
-				8421B7DA20BF930C006F46C0 /* Player_ScoreCard */,
+				8421B7DA20BF930C006F46C0 /* ScoreCard */,
+				8477A61320C44A7100D1F910 /* Common */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		844865B82056D68B0076B976 /* Models */ = {
@@ -192,6 +204,15 @@
 				84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8477A61320C44A7100D1F910 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8477A61420C44AA000D1F910 /* LeaderBoardCell.swift */,
+				8477A63220C5215200D1F910 /* UIViewVIP.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		84FFADAA2056164600DB33DA = {
@@ -217,11 +238,10 @@
 		84FFADB52056164700DB33DA /* golf */ = {
 			isa = PBXGroup;
 			children = (
-				844865B72056D6640076B976 /* ViewControllers */,
+				844865B72056D6640076B976 /* Views */,
 				844865B52056D6340076B976 /* Storyboards */,
 				844865B82056D68B0076B976 /* Models */,
 				844865B62056D6530076B976 /* Workers */,
-				844865B42056D6240076B976 /* App */,
 				84FFADBD2056164700DB33DA /* Assets.xcassets */,
 			);
 			path = golf;
@@ -331,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8477A61E20C47C3400D1F910 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,10 +381,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8421B7EC20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */,
+				8477A62F20C51F3D00D1F910 /* ScoreCardWorker.swift in Sources */,
 				844865B32056839E0076B976 /* LeaderBoardPresenter.swift in Sources */,
+				8477A63120C51F7800D1F910 /* LeaderBoardWorker.swift in Sources */,
 				849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */,
 				84FFADB92056164700DB33DA /* LeaderBoardVC.swift in Sources */,
 				84FFADD720564CA000DB33DA /* APIService.swift in Sources */,
+				8477A61520C44AA000D1F910 /* LeaderBoardCell.swift in Sources */,
 				849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */,
 				840197C420829D1C00E45D75 /* Utils.swift in Sources */,
 				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
@@ -371,6 +395,7 @@
 				8477A60920C0FBB200D1F910 /* ScoreCardModels.swift in Sources */,
 				8421B7EF20BFD782006F46C0 /* ScoreCardRouter.swift in Sources */,
 				84C11940205670560003D0B6 /* EndPoints.swift in Sources */,
+				8477A63320C5215200D1F910 /* UIViewVIP.swift in Sources */,
 				84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */,
 				8421B7D720BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */,
 				8421B7DC20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */,
@@ -381,23 +406,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8421B7DE20BFBF7C006F46C0 /* ScoreCardPresenter.swift in Sources */,
+				8477A61A20C4554C00D1F910 /* ScoreCardPresenterTests.swift in Sources */,
+				8477A61620C44AA000D1F910 /* LeaderBoardCell.swift in Sources */,
 				84B2D5A220643AF400EA25C3 /* GolfDataTests.swift in Sources */,
-				8421B7E120BFBFF9006F46C0 /* LeaderBoardPresenter.swift in Sources */,
-				8421B7E520BFC28A006F46C0 /* Utils.swift in Sources */,
-				8421B7E220BFC1DE006F46C0 /* LeaderBoardVC.swift in Sources */,
+				8477A61920C4554A00D1F910 /* ScoreCardWorkerTests.swift in Sources */,
 				8436E94620632D7200DC4358 /* LeaderBoardPresenterTests.swift in Sources */,
-				8421B7DF20BFBF89006F46C0 /* GolfData.swift in Sources */,
-				8421B7F020BFD782006F46C0 /* ScoreCardRouter.swift in Sources */,
-				8421B7E020BFBF9D006F46C0 /* ScoreCardVC.swift in Sources */,
-				8477A60A20C196AE00D1F910 /* ScoreCardModels.swift in Sources */,
-				8421B7ED20BFD048006F46C0 /* LeaderBoardRouter.swift in Sources */,
-				8421B7CC20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */,
+				8477A61720C4553D00D1F910 /* ScoreCardViewControllerTests.swift in Sources */,
 				8421B7EA20BFC32F006F46C0 /* golfTests.swift in Sources */,
-				8421B7D820BF9113006F46C0 /* ScoreCardInteractor.swift in Sources */,
-				8421B7E420BFC27D006F46C0 /* APIService.swift in Sources */,
-				8421B7E320BFC1F0006F46C0 /* EndPoints.swift in Sources */,
-				8421B7DD20BFA6D5006F46C0 /* LeaderBoardModels.swift in Sources */,
+				8477A61820C4554600D1F910 /* ScoreCardInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,9 +567,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/golf/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/golf/Workers/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
@@ -577,9 +594,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/golf/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/golf/Workers/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
@@ -605,6 +623,7 @@
 				);
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -629,6 +648,7 @@
 				);
 				INFOPLIST_FILE = golfTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -9,11 +9,11 @@
 import Foundation
 
 protocol ScoreCardBusinessLogic {
-    func getPlayerScoreCard(_ playerID:Int)
+    func getPlayerScoreCard(_ request:ScoreCard.getPlayerScoreCard.request)
 }
 
 protocol ScoreCardDataStore {
-    var selectedPlayer:Int? { get set }
+    var selectedPlayer:Int? {get set}
     var playerList:[Int:Players]? {get set}
 }
 
@@ -24,14 +24,16 @@ class ScoreCardInteractor: ScoreCardBusinessLogic, ScoreCardDataStore {
     var selectedPlayer:Int? = nil
     var playerList:[Int:Players]?
 
-    func getPlayerScoreCard(_ playerID:Int) {
+    func getPlayerScoreCard(_ request:ScoreCard.getPlayerScoreCard.request) {
         // assume golf class already has current data - so no new API for now
-        if let selected_id = selectedPlayer, let scoreDetails = calculateScoreCard(chosen:selected_id) {
-            scoreCardPresenter?.showScoreCardFromGolf(scoreDetails)
+        if let playerID = selectedPlayer, let scoreDetails = calculateScoreCard(chosen:playerID) {
+            let response = ScoreCard.getPlayerScoreCard.response(scoredata: scoreDetails)
+            scoreCardPresenter?.presentScoreCard(response)
         } else {
             print("scores missing")
         }
     }
+    
     func calculateScoreCard(chosen:Int) -> [String]? {
         var scores:[String] = []
 //        if let course = self.courseDetail, let _ = event, let _ = playerList {
