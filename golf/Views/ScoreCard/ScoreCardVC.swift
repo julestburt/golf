@@ -104,7 +104,7 @@ class ScoreCardRowCell : UITableViewCell {
     @IBOutlet weak var score: UILabel!
     var numbers:[Int:UILabel] = [:]
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         for eachView in contentView.subviews {
             if let label = eachView as? UILabel, let title = label.text,

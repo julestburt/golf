@@ -120,7 +120,7 @@ class LeaderBoardViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     fileprivate func addRefreshControl() {
-        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshPulled), for: UIControl.Event.valueChanged)
         if #available(iOS 10.0, *) {
             table.refreshControl = refreshControl
         } else {
