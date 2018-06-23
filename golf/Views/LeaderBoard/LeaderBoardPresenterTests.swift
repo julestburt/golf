@@ -44,7 +44,7 @@ class leaderBoardPresenterTests: XCTestCase {
 
         // I faked the view, to get the output of leaderBoardPresenter, but then I also changed code in presenter to help test that function specifically...see below
         
-        class spyVC : ViewActions {
+        class spyVC : LeaderBoardDisplay {
             var presentationOutput:LeaderBoard.presentLeaderBoard.ViewModel? = nil
             func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel) {
                 presentationOutput = viewModel
