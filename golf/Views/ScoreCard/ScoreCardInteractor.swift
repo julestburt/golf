@@ -35,7 +35,7 @@ class ScoreCardInteractor: ScoreCardBusinessLogic, ScoreCardDataStore {
     }
     
     func calculateScoreCard(chosen:Int) -> [String]? {
-        var scores:[String] = []
+        let scores:[String] = []
 //        if let course = self.courseDetail, let _ = event, let _ = playerList {
 //            for _ in scores {
 //                scores.append("Scores")

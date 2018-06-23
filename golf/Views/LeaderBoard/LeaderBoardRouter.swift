@@ -33,11 +33,11 @@ class LeaderBoardRouter: NSObject, LeaderBoardRoutingLogic, LeaderBoardDataPassi
         }
     }
     
-    var viewController: LeaderBoardVC?
+    var viewController: LeaderBoardViewController?
 
     // MARK: Routing
     
-    func navigateToScoreCard(source: LeaderBoardVC, destination: ScoreCardVC)
+    func navigateToScoreCard(source: LeaderBoardViewController, destination: ScoreCardVC)
     {
         source.show(destination, sender: nil)
     }

@@ -45,14 +45,12 @@ class Utils {
         #endif
     }
     
-    func loadDebugData(fileName:String) -> [AnyObject]? {
-        let inventoryPath = documentsPath.appendingPathComponent(fileName)
+    func loadDebugData(fileName:String) -> JSON? {
+        let inventoryPath = documentsPath.appendingPathComponent(fileName + ".txt")
         do {
             let sourceString = try NSString(contentsOfFile: inventoryPath, encoding: String.Encoding.utf8.rawValue)
-            let strippedText = sourceString.replacingOccurrences(of: "#!\"C:\\Bitnami\\wampstack-5.5.34-0\\php\\php\"\r\n", with: "")
-            let data2 = strippedText.data(using: String.Encoding.utf8)
-            let array = try JSONSerialization.jsonObject(with: data2!, options: JSONSerialization.ReadingOptions(rawValue: 0))  as? [AnyObject]
-            return array!
+            let json = JSON(sourceString)
+            return json
         } catch let error as NSError {
             print("error loading from file \(inventoryPath)")
             print(error.localizedDescription)

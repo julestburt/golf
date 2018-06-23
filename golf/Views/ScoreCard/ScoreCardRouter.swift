@@ -22,23 +22,23 @@ class ScoreCardRouter: NSObject, ScoreCardRoutingLogic, ScoreCardDataPassing {
     
     func routeToLeaderBoard(segue: UIStoryboardSegue?) {
         if let segue = segue {
-            let destinationVC = segue.destination as! LeaderBoardVC
+            let destinationVC = segue.destination as! LeaderBoardViewController
             var destinationDS = destinationVC.router!.dataStore!
-//            passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
+            passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
         } else {
-            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "LeaderBoardVC") as! LeaderBoardVC
+            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "LeaderBoardVC") as! LeaderBoardViewController
             var destinationDS = destinationVC.router!.dataStore!
-//            passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
+            passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
             navigateToLeaderBoard(source: viewController!, destination: destinationVC)
             
         }
     }
     
-    func navigateToLeaderBoard(source: ScoreCardVC, destination: LeaderBoardVC) {
+    func navigateToLeaderBoard(source: ScoreCardVC, destination: LeaderBoardViewController) {
         source.show(destination, sender: nil)
     }
 
-//    func passDataToLeaderBoard(source: ScoreCardDataStore, destination: LeaderBoardDataStore) {
-//        print("here we pass...")
-//    }
+    func passDataToLeaderBoard(source: ScoreCardDataStore, destination: inout LeaderBoardDataStore) {
+        print("here we pass...")
+    }
 }

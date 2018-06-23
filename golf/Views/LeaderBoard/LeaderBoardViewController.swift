@@ -13,11 +13,11 @@ import UIKit
 // MARK: View Actions
 //------------------------------------------------------------------------------
 
-protocol ViewActions : class {
+protocol LeaderBoardDisplay {
     func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel)
 }
 
-extension LeaderBoardVC: ViewActions {
+extension LeaderBoardViewController: LeaderBoardDisplay {
     func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel) {
         title = viewModel.tournamentTitle
         displayLeaderBoard(viewModel.leaderBoard)
@@ -28,7 +28,7 @@ extension LeaderBoardVC: ViewActions {
 // MARK: Interactor Actions
 //------------------------------------------------------------------------------
 
-extension LeaderBoardVC {
+extension LeaderBoardViewController {
     func getLeaderBoard() {
         if alternateRoute {
             interactor?.getCalculatedLeaderBoard()
@@ -43,7 +43,7 @@ extension LeaderBoardVC {
 // MARK: View Controller
 //------------------------------------------------------------------------------
 
-class LeaderBoardVC: UIViewController {
+class LeaderBoardViewController: UIViewController {
 
     ////////////////////////////////////////////////////////////////////////////////
     // MARK: View Control / LifeCycle
@@ -143,7 +143,7 @@ class LeaderBoardVC: UIViewController {
 // MARK: UITableView DataSource / Delegate
 //------------------------------------------------------------------------------
 
-extension LeaderBoardVC : UITableViewDelegate, UITableViewDataSource {
+extension LeaderBoardViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leaderboardData != nil ? leaderboardData!.count + 1 : 0
     }
