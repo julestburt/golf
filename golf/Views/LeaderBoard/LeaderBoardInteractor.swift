@@ -31,12 +31,11 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
     var leaderBoardPresenter:LeaderBoardPresenter?
     private var scoreCardPresenter:ScoreCardPresenter?
 
-    var endPoints:EndPoints? = EndPoints()
     let chosenGame = 1000
 
     // Get the complete leaderboard direct from the API
     fileprivate func getLeaderBoardScores() {
-        endPoints?.getLeaderboard(eventID: chosenGame, completion: { result in
+        EndPoint().getLeaderboard(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
                 self.leaderBoard = []
@@ -45,6 +44,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
                     self.leaderBoard?.append(entry)
                 }
             case .Error(let error, let code, let message):
+                _ = "\(error):\(code):\(message)"
                 break
             }
             self.checkLeaderBoardReturns()
@@ -52,7 +52,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
     }
     
     fileprivate func getPlayers() {
-        endPoints?.getPlayers(completion: { result in
+        EndPoint().getPlayers(completion: { result in
             switch result {
             case .Success(let data):
                 self.playerList = [:]
@@ -61,6 +61,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
                     self.playerList?[player.ID] = player
                 }
             case .Error(let error, let code, let message):
+                _ = "\(error):\(code):\(message)"
                 break
             }
             self.checkLeaderBoardReturns()
@@ -107,22 +108,24 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
     }
     
     fileprivate func getEvent() {
-        endPoints?.getEvent(eventID: chosenGame, completion: { result in
+        EndPoint().getEvent(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
                 self.event = Event(json: data)
                 
-                self.endPoints?.getCourse(courseID: self.event!.courseID, completion: { result in
+                EndPoint().getCourse(courseID: self.event!.courseID, completion: { result in
                     switch result {
                     case .Success(let data):
                         let course = Course(json: data)
                         self.courseDetail = course
                     case .Error(let error, let code, message: let message):
+                        _ = "\(error):\(code):\(message)"
                         break
                     }
                     self.checkCalculatedReturns()
                 })
             case .Error(let error, let code, let message):
+                _ = "\(error):\(code):\(message)"
                 break
             }
             self.checkCalculatedReturns()
@@ -140,7 +143,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
         getEvent()
         
         
-        endPoints?.getPlayers(completion: { result in
+        EndPoint().getPlayers(completion: { result in
             switch result {
             case .Success(let data):
                 self.playerList = [:]
@@ -149,6 +152,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
                     self.playerList?[player.ID] = player
                 }
             case .Error(let error, let code, let message):
+                _ = "\(error):\(code):\(message)"
                 break
             }
             self.checkCalculatedReturns()

@@ -14,7 +14,7 @@ protocol LeaderBoardPresentationLogic {
 
 class LeaderBoardPresenter: LeaderBoardPresentationLogic {
 
-    var viewController: ViewActions?
+    var viewController: LeaderBoardDisplay?
 
     func showLeaderBoard(_ response:LeaderBoard.presentLeaderBoard.Response) {
         let viewModel = createLeaderBoard(response)
