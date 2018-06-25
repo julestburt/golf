@@ -65,6 +65,7 @@
 		8421B7E820BFC32F006F46C0 /* golfTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = golfTests.swift; sourceTree = "<group>"; };
 		8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardRouter.swift; sourceTree = "<group>"; };
 		8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardRouter.swift; sourceTree = "<group>"; };
+		842C63CA20E09FBD006E52E2 /* MyPlayground2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground2.playground; path = ../../MyPlayground2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenterTests.swift; sourceTree = "<group>"; };
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
@@ -214,6 +215,7 @@
 		84FFADAA2056164600DB33DA = {
 			isa = PBXGroup;
 			children = (
+				842C63CA20E09FBD006E52E2 /* MyPlayground2.playground */,
 				84FFADB52056164700DB33DA /* golf */,
 				849A984220573B8A005F2B1F /* fastlane */,
 				84FFADCA2056164700DB33DA /* golfTests */,

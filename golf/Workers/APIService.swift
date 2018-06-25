@@ -28,7 +28,19 @@ let serviceURL = "https://leaderboard-techtest.herokuapp.com"
 
 class API : NSObject, APIService {
     
-    static let service = API()
+    private static var _instance: API?
+    
+    class var service: API {
+        if _instance == nil {
+            _instance = API()
+        }
+        return _instance!
+    }
+    
+    func dispose() {
+        API._instance = nil
+        print("Disposed Singleton instance")
+    }
     
     fileprivate(set) var alamoFire:SessionManager!
     var currentRequests:[String:APIRequest] = [:]
@@ -45,6 +57,7 @@ class API : NSObject, APIService {
         sessionConfig.timeoutIntervalForRequest = 20
         sessionConfig.timeoutIntervalForResource = 60
         alamoFire = Alamofire.SessionManager(configuration: sessionConfig)
+        print("started")
     }
     
     func request(tag:String, url:String, expectJSONArray:Bool, completion:@escaping jsonCompletion) {
@@ -126,7 +139,7 @@ extension API: APIResponse {
             } else {
                 request.completion(.Success(data:data))
             }
-            currentRequests[tag] = nil
+            removeRequests(tag: tag)
         } else {
             assert(true, "Problem with extracting JSON or missing completion return. Both bad!")
         }
@@ -135,8 +148,15 @@ extension API: APIResponse {
     func didFail(tag: String, error: String, code: Int?) {
         if let request = currentRequests[tag] {
             request.completion(.Error((error:error, code:code != nil ? code! : -1, message:tag)))
-            currentRequests[tag] = nil
+            removeRequests(tag: tag)
             print("API error:\(error), code:\(String(describing: code)), tag:\(tag)")
+        }
+    }
+    
+    func removeRequests(tag:String) {
+        currentRequests[tag] = nil
+        if currentRequests.count == 0 {
+            dispose()
         }
     }
     
