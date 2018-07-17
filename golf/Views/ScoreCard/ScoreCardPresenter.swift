@@ -15,11 +15,11 @@ protocol ScoreCardPresenterLogic {
 
 class ScoreCardPresenter : ScoreCardPresenterLogic {
     
-    var viewController:ScoreCardVCLogic?
+    var viewController:ScoreCardDisplay?
     
     func presentScoreCard(_ response:ScoreCard.getPlayerScoreCard.response) {
         let viewModel = ScoreCard.getPlayerScoreCard.viewModel(rounds: [:])
-        viewController?.displayScoreCard(viewModel: viewModel)
+        viewController?.showScoreCard(viewModel: viewModel)
     }
     
 }
