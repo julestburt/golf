@@ -13,39 +13,34 @@
 @testable import golf
 import XCTest
 
-class ScoreCardPresenterTests: XCTestCase
-{
+class ScoreCardPresenterTests: XCTestCase {
   // MARK: Subject under test
   
   var sut: ScoreCardPresenter!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     setupScoreCardPresenter()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     super.tearDown()
   }
   
   // MARK: Test setup
   
-  func setupScoreCardPresenter()
-  {
+  func setupScoreCardPresenter() {
     sut = ScoreCardPresenter()
   }
   
   // MARK: Test doubles
   
-  class ScoreCardDisplayLogicSpy: ScoreCardVCLogic
-  {
-    var displayScoreCardCalled:Bool = false
-    func displayScoreCard(viewModel: ScoreCard.getPlayerScoreCard.viewModel) {
-        displayScoreCardCalled = true
+  class ScoreCardDisplayLogicSpy: ScoreCardDisplay {
+    var showScoreCardCalled:Bool = false
+    func showScoreCard(viewModel: ScoreCard.getPlayerScoreCard.viewModel) {
+        showScoreCardCalled = true
     }
   }
   
@@ -62,6 +57,6 @@ class ScoreCardPresenterTests: XCTestCase
     sut.presentScoreCard(response)
     
     // Then
-    XCTAssertTrue(spy.displayScoreCardCalled, "presentSomething(response:) should ask the view controller to display the result")
+    XCTAssertTrue(spy.showScoreCardCalled, "presentSomething(response:) should ask the view controller to display the result")
   }
 }

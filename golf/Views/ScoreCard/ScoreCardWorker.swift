@@ -8,9 +8,7 @@
 
 import Foundation
 
-class ScoreCardWorker
-{
-    func doSomeWork()
-    {
+class ScoreCardWorker {
+    func doSomeWork() {
     }
 }

@@ -31,8 +31,7 @@
 		8477A61E20C47C3400D1F910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBA2056164700DB33DA /* Main.storyboard */; };
 		8477A62F20C51F3D00D1F910 /* ScoreCardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A62E20C51F3C00D1F910 /* ScoreCardWorker.swift */; };
 		8477A63120C51F7800D1F910 /* LeaderBoardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */; };
-		849A984320573B8A005F2B1F /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 849A984220573B8A005F2B1F /* fastlane */; };
-		849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardVC.swift */; };
+		849A984520574EAA005F2B1F /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984420574EAA005F2B1F /* ScoreCardViewController.swift */; };
 		849A984720575393005F2B1F /* ScoreCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A984620575393005F2B1F /* ScoreCardPresenter.swift */; };
 		84B2D5A220643AF400EA25C3 /* GolfDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */; };
 		84C11940205670560003D0B6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1193F205670560003D0B6 /* EndPoint.swift */; };
@@ -65,7 +64,6 @@
 		8421B7E820BFC32F006F46C0 /* golfTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = golfTests.swift; sourceTree = "<group>"; };
 		8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardRouter.swift; sourceTree = "<group>"; };
 		8421B7EE20BFD782006F46C0 /* ScoreCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardRouter.swift; sourceTree = "<group>"; };
-		842C63CA20E09FBD006E52E2 /* MyPlayground2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground2.playground; path = ../../MyPlayground2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenterTests.swift; sourceTree = "<group>"; };
 		844865B22056839E0076B976 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
 		844865B92056D6BF0076B976 /* GolfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfData.swift; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 		8477A62E20C51F3C00D1F910 /* ScoreCardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardWorker.swift; sourceTree = "<group>"; };
 		8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardWorker.swift; sourceTree = "<group>"; };
 		849A984220573B8A005F2B1F /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
-		849A984420574EAA005F2B1F /* ScoreCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardVC.swift; sourceTree = "<group>"; };
+		849A984420574EAA005F2B1F /* ScoreCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
 		849A984620575393005F2B1F /* ScoreCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardPresenter.swift; sourceTree = "<group>"; };
 		84B2D5A120643AF400EA25C3 /* GolfDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfDataTests.swift; sourceTree = "<group>"; };
 		84C1193F205670560003D0B6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -143,7 +141,7 @@
 		8421B7DA20BF930C006F46C0 /* ScoreCard */ = {
 			isa = PBXGroup;
 			children = (
-				849A984420574EAA005F2B1F /* ScoreCardVC.swift */,
+				849A984420574EAA005F2B1F /* ScoreCardViewController.swift */,
 				8477A60B20C3450B00D1F910 /* ScoreCardViewControllerTests.swift */,
 				849A984620575393005F2B1F /* ScoreCardPresenter.swift */,
 				8477A60E20C3450B00D1F910 /* ScoreCardPresenterTests.swift */,
@@ -215,7 +213,6 @@
 		84FFADAA2056164600DB33DA = {
 			isa = PBXGroup;
 			children = (
-				842C63CA20E09FBD006E52E2 /* MyPlayground2.playground */,
 				84FFADB52056164700DB33DA /* golf */,
 				849A984220573B8A005F2B1F /* fastlane */,
 				84FFADCA2056164700DB33DA /* golfTests */,
@@ -343,7 +340,6 @@
 			files = (
 				84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */,
 				84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */,
-				849A984320573B8A005F2B1F /* fastlane in Resources */,
 				84FFADBC2056164700DB33DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -389,7 +385,7 @@
 				84FFADB92056164700DB33DA /* LeaderBoardViewController.swift in Sources */,
 				84FFADD720564CA000DB33DA /* APIService.swift in Sources */,
 				8477A61520C44AA000D1F910 /* LeaderBoardCell.swift in Sources */,
-				849A984520574EAA005F2B1F /* ScoreCardVC.swift in Sources */,
+				849A984520574EAA005F2B1F /* ScoreCardViewController.swift in Sources */,
 				840197C420829D1C00E45D75 /* Utils.swift in Sources */,
 				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
 				8421B7CB20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */,
@@ -503,6 +499,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -555,6 +552,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -564,7 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,7 +589,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GolfIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,7 +616,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -643,7 +641,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZU9YSQ22FQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
