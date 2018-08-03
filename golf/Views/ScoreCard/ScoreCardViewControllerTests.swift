@@ -13,47 +13,41 @@
 @testable import golf
 import XCTest
 
-class ScoreCardViewControllerTests: XCTestCase
-{
+class ScoreCardViewControllerTests: XCTestCase {
   // MARK: Subject under test
   
-  var sut: ScoreCardVC!
+  var sut: ScoreCardViewController!
   var window: UIWindow!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     window = UIWindow()
     setupScoreCardVC()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     window = nil
     super.tearDown()
   }
   
   // MARK: Test setup
   
-  func setupScoreCardVC()
-  {
+  func setupScoreCardVC() {
     let bundle = Bundle.main
     let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-    sut = storyboard.instantiateViewController(withIdentifier: "ScoreVC") as? ScoreCardVC
+    sut = storyboard.instantiateViewController(withIdentifier: "ScoreCard") as? ScoreCardViewController
   }
   
-  func loadView()
-  {
+  func loadView() {
     window.addSubview(sut.view)
     RunLoop.current.run(until: Date())
   }
   
   // MARK: Test doubles
   
-  class ScoreCardBusinessLogicSpy: ScoreCardBusinessLogic
-  {
+  class ScoreCardBusinessLogicSpy: ScoreCardBusinessLogic {
     var getPlayerScoreCardCalled:Bool = false
     func getPlayerScoreCard(_ request: ScoreCard.getPlayerScoreCard.request) {
         getPlayerScoreCardCalled = true
@@ -62,8 +56,7 @@ class ScoreCardViewControllerTests: XCTestCase
   
   // MARK: Tests
   
-    func testShouldDoSomethingWhenViewIsLoaded()
-    {
+    func testShouldDoSomethingWhenViewIsLoaded() {
         // Given
         let spy = ScoreCardBusinessLogicSpy()
         sut.interactor = spy
@@ -75,14 +68,13 @@ class ScoreCardViewControllerTests: XCTestCase
         XCTAssertTrue(spy.getPlayerScoreCardCalled, "viewDidLoad() should ask the interactor to do something")
     }
   
-  func testDisplaySomething()
-  {
+  func testDisplaySomething() {
     // Given
     let viewModel = ScoreCard.getPlayerScoreCard.viewModel(rounds: [:])
     
     // When
     loadView()
-    sut.displayScoreCard(viewModel: viewModel)
+    sut.showScoreCard(viewModel: viewModel)
     
     // Then
     XCTAssertEqual(sut.displayScoreCardCalled, true, "displaySomething(viewModel:) should update the name text field")

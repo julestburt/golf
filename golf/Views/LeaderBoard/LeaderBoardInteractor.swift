@@ -13,7 +13,6 @@ import SwiftyJSON
 
 protocol LeaderBoardBusinessLogic {
     func getLeaderBoard()
-    func getCalculatedLeaderBoard()
 }
 
 protocol LeaderBoardDataStore {
@@ -32,6 +31,19 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
     private var scoreCardPresenter:ScoreCardPresenter?
 
     let chosenGame = 1000
+    
+    // alternate between serving up the prepared API Leaderboard
+    // or one where we create the same table...
+    var alternate = true
+    
+    func getLeaderBoard() {
+        if alternate {
+            getLeaderBoardMulti()
+        } else {
+            getCalculatedLeaderBoard()
+        }
+        alternate = !alternate
+    }
 
     // Get the complete leaderboard direct from the API
     fileprivate func getLeaderBoardScores() {
@@ -68,7 +80,7 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
         })
     }
     
-    internal func getLeaderBoard() {
+    internal func getLeaderBoardMulti() {
         
         guard !inProgressAlready else { return }
         inProgressAlready = true

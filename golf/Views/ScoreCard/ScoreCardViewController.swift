@@ -1,5 +1,5 @@
 //
-//  ScoreCardVC.swift
+//  ScoreCardViewController.swift
 //  golf
 //
 //  Created by Jules Burt on 2018-03-12.
@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-protocol ScoreCardVCLogic {
-    func displayScoreCard(viewModel:ScoreCard.getPlayerScoreCard.viewModel)
+protocol ScoreCardDisplay {
+    func showScoreCard(viewModel:ScoreCard.getPlayerScoreCard.viewModel)
 }
 
-class ScoreCardVC: UIViewController, ScoreCardVCLogic {
+class ScoreCardViewController: UIViewController, ScoreCardDisplay {
     var rounds:[Int:halfRound]? = nil
 
     var displayScoreCardCalled:Bool = false
-    func displayScoreCard(viewModel: ScoreCard.getPlayerScoreCard.viewModel) {
+    func showScoreCard(viewModel: ScoreCard.getPlayerScoreCard.viewModel) {
         rounds = viewModel.rounds
         scoreTable.reloadData()
         displayScoreCardCalled = true
@@ -71,7 +71,7 @@ class ScoreCardVC: UIViewController, ScoreCardVCLogic {
     
 }
 
-extension ScoreCardVC : UITableViewDelegate, UITableViewDataSource {
+extension ScoreCardViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
