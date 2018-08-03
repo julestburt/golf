@@ -1,4 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////////
 //
 //  LeaderBoard ViewController.swift
 //  golf
@@ -6,12 +5,12 @@
 //  Created by Jules Burt on 2018-03-11.
 //  Copyright © 2018 bethegame Inc. All rights reserved.
 //
-/////////////////////////////////////////////////////////////////////////////////
+
 import UIKit
 
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 // MARK: View Actions
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 
 protocol LeaderBoardDisplay {
     func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel)
@@ -24,24 +23,9 @@ extension LeaderBoardViewController: LeaderBoardDisplay {
     }
 }
 
-//------------------------------------------------------------------------------
-// MARK: Interactor Actions
-//------------------------------------------------------------------------------
-
-extension LeaderBoardViewController {
-    func getLeaderBoard() {
-        if alternateRoute {
-            interactor?.getCalculatedLeaderBoard()
-        } else {
-            interactor?.getLeaderBoard()
-        }
-        alternateRoute = alternateRoute ? false : true
-    }
-}
-
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 // MARK: View Controller
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 
 class LeaderBoardViewController: UIViewController {
 
@@ -49,13 +33,14 @@ class LeaderBoardViewController: UIViewController {
     // MARK: View Control / LifeCycle
     ////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
+
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
         addRefreshControl()
         activity.startAnimating()
-        getLeaderBoard()
+        interactor?.getLeaderBoard()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -83,7 +68,6 @@ class LeaderBoardViewController: UIViewController {
     var interactor:LeaderBoardBusinessLogic? = nil
     var router:(NSObjectProtocol & LeaderBoardRoutingLogic & LeaderBoardDataPassing)?
     var leaderboardData:[LeaderBoard.presentLeaderBoard.ViewModel.LeaderBoardEntry]? = nil
-    var alternateRoute:Bool = true
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
@@ -94,9 +78,9 @@ class LeaderBoardViewController: UIViewController {
         }
     }
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------
     // MARK: UITableView
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------
 
 
     @IBOutlet weak var loadingScreen: UIView!
@@ -113,9 +97,9 @@ class LeaderBoardViewController: UIViewController {
         table.reloadData()
     }
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------
     // MARK: Refresh Control
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------
     
     let refreshControl = UIRefreshControl()
     
@@ -129,7 +113,7 @@ class LeaderBoardViewController: UIViewController {
     }
     
     @objc func refreshPulled() {
-        getLeaderBoard()
+        interactor?.getLeaderBoard()
     }
     
     func resetRefreshControl() {
@@ -139,9 +123,9 @@ class LeaderBoardViewController: UIViewController {
     }
 }
 
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 // MARK: UITableView DataSource / Delegate
-//------------------------------------------------------------------------------
+//--------------------------------------------------
 
 extension LeaderBoardViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
