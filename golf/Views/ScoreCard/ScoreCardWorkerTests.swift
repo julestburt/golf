@@ -13,29 +13,25 @@
 @testable import golf
 import XCTest
 /*
-class ScoreCardWorkerTests: XCTestCase
-{
+class ScoreCardWorkerTests: XCTestCast {
   // MARK: Subject under test
   
   var sut: ScoreCardWorker!
   
   // MARK: Test lifecycle
   
-  override func setUp()
-  {
+  override func setUp() {
     super.setUp()
     setupScoreCardWorker()
   }
   
-  override func tearDown()
-  {
+  override func tearDown() {
     super.tearDown()
   }
   
   // MARK: Test setup
   
-  func setupScoreCardWorker()
-  {
+  func setupScoreCardWorker() {
     sut = ScoreCardWorker()
   }
   
@@ -43,8 +39,7 @@ class ScoreCardWorkerTests: XCTestCase
   
   // MARK: Tests
   
-  func testSomething()
-  {
+  func testSomething() {
     // Given
     
     // When

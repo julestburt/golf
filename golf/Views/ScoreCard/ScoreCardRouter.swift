@@ -18,7 +18,7 @@ protocol ScoreCardDataPassing {
 
 class ScoreCardRouter: NSObject, ScoreCardRoutingLogic, ScoreCardDataPassing {
     var dataStore:ScoreCardDataStore?
-    weak var viewController:ScoreCardVC?
+    weak var viewController:ScoreCardViewController?
     
     func routeToLeaderBoard(segue: UIStoryboardSegue?) {
         if let segue = segue {
@@ -26,7 +26,7 @@ class ScoreCardRouter: NSObject, ScoreCardRoutingLogic, ScoreCardDataPassing {
             var destinationDS = destinationVC.router!.dataStore!
             passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
         } else {
-            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "LeaderBoardVC") as! LeaderBoardViewController
+            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "LeaderBoard") as! LeaderBoardViewController
             var destinationDS = destinationVC.router!.dataStore!
             passDataToLeaderBoard(source: dataStore!, destination: &destinationDS)
             navigateToLeaderBoard(source: viewController!, destination: destinationVC)
@@ -34,7 +34,7 @@ class ScoreCardRouter: NSObject, ScoreCardRoutingLogic, ScoreCardDataPassing {
         }
     }
     
-    func navigateToLeaderBoard(source: ScoreCardVC, destination: LeaderBoardViewController) {
+    func navigateToLeaderBoard(source: ScoreCardViewController, destination: LeaderBoardViewController) {
         source.show(destination, sender: nil)
     }
 

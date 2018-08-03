@@ -22,11 +22,11 @@ class LeaderBoardRouter: NSObject, LeaderBoardRoutingLogic, LeaderBoardDataPassi
     
     func routeToScoreCard(segue: UIStoryboardSegue?) {
         if let segue = segue {
-            let destVC = segue.destination as! ScoreCardVC
+            let destVC = segue.destination as! ScoreCardViewController
             var destDataStore = destVC.router!.dataStore!
             passDataToScoreCard(source: dataStore!, destination: &destDataStore)
         } else {
-            let destVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "ScoreCardVC") as! ScoreCardVC
+            let destVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "ScoreCard") as! ScoreCardViewController
             var destDataStore = destVC.router!.dataStore!
             passDataToScoreCard(source: dataStore!, destination: &destDataStore)
             navigateToScoreCard(source: viewController!, destination: destVC)
@@ -37,7 +37,7 @@ class LeaderBoardRouter: NSObject, LeaderBoardRoutingLogic, LeaderBoardDataPassi
 
     // MARK: Routing
     
-    func navigateToScoreCard(source: LeaderBoardViewController, destination: ScoreCardVC)
+    func navigateToScoreCard(source: LeaderBoardViewController, destination: ScoreCardViewController)
     {
         source.show(destination, sender: nil)
     }
