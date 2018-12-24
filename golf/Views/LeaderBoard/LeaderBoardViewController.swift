@@ -11,7 +11,6 @@ import UIKit
 //--------------------------------------------------
 // MARK: View Actions
 //--------------------------------------------------
-
 protocol LeaderBoardDisplay {
     func presentLeaderBoard(viewModel: LeaderBoard.presentLeaderBoard.ViewModel)
 }
@@ -26,12 +25,8 @@ extension LeaderBoardViewController: LeaderBoardDisplay {
 //--------------------------------------------------
 // MARK: View Controller
 //--------------------------------------------------
-
 class LeaderBoardViewController: UIViewController {
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // MARK: View Control / LifeCycle
-    ////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -81,8 +76,6 @@ class LeaderBoardViewController: UIViewController {
     //--------------------------------------------------
     // MARK: UITableView
     //--------------------------------------------------
-
-
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
 
@@ -100,7 +93,6 @@ class LeaderBoardViewController: UIViewController {
     //--------------------------------------------------
     // MARK: Refresh Control
     //--------------------------------------------------
-    
     let refreshControl = UIRefreshControl()
     
     fileprivate func addRefreshControl() {
@@ -126,7 +118,6 @@ class LeaderBoardViewController: UIViewController {
 //--------------------------------------------------
 // MARK: UITableView DataSource / Delegate
 //--------------------------------------------------
-
 extension LeaderBoardViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leaderboardData != nil ? leaderboardData!.count + 1 : 0

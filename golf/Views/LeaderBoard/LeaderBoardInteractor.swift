@@ -21,14 +21,13 @@ protocol LeaderBoardDataStore {
 }
 
 class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
-        
-    var leaderBoard:[Entries]?
+
+    var leaderBoard:[Entries]? = nil
     var playerList:[Int:Players]? = [:]
     var event:Event? = nil
     var courseDetail:Course? = nil
     
     var leaderBoardPresenter:LeaderBoardPresenter?
-    private var scoreCardPresenter:ScoreCardPresenter?
 
     let chosenGame = 1000
     
