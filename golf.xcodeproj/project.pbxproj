@@ -57,7 +57,6 @@
 		840197C320829D1C00E45D75 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardInteractor.swift; sourceTree = "<group>"; };
 		8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8421B7CE20BF8EAE006F46C0 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = Carthage/Build/iOS/Then.framework; sourceTree = "<group>"; };
 		8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8421B7D620BF9113006F46C0 /* ScoreCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardInteractor.swift; sourceTree = "<group>"; };
 		8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardModels.swift; sourceTree = "<group>"; };
@@ -119,7 +118,6 @@
 			children = (
 				8421B7CD20BF8EAE006F46C0 /* Alamofire.framework */,
 				8421B7CF20BF8EAE006F46C0 /* SwiftyJSON.framework */,
-				8421B7CE20BF8EAE006F46C0 /* Then.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

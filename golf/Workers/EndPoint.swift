@@ -20,7 +20,7 @@ class EndPoint {
         static let getCourse = endpoint(tag: "getCourse", endpoint: "/api/1/courses/{courseID}/")
         static let getLeader = endpoint(tag:"getLeader", endpoint:"/api/1/events/{eventID}/leaderboard/")
     }
-    
+
     func getLeaderboard(eventID:Int, completion: @escaping (APIDataResult<NSData>)->()) {
         let getLeader = APITags.getLeader
         let url = getLeader.endpoint.replacingOccurrences(of: "{eventID}", with: "\(eventID)")
