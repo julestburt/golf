@@ -1,0 +1,17 @@
+# Xcode
+#
+xcuserdata
+*.xccheckout
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+.DS_Store
+*.dSYM.zip
+provisions/
+fastlane/test_output/
+fastlane/README.md
+fastlane/report.xml
+fastlane/git_changes.txt
+fastlane/git_temp.txt
+FastlaneMatch/
