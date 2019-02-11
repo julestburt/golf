@@ -1,2 +1,3 @@
-github "Alamofire/Alamofire" "4.8.0"
+github "Alamofire/Alamofire" "4.8.1"
 github "SwiftyJSON/SwiftyJSON" "3.0.0"
+github "freshOS/then" "4.2.1"
