@@ -15,3 +15,7 @@ fastlane/report.xml
 fastlane/git_changes.txt
 fastlane/git_temp.txt
 FastlaneMatch/
+Carthage/Build/Mac/*
+Carthage/Build/tvOS/*
+Carthage/Build/watchOS/*
+Carthage/Build/iOS/*.bcsymbolmap
