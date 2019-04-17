@@ -127,11 +127,11 @@
 			children = (
 				84FFADB82056164700DB33DA /* LeaderBoardViewController.swift */,
 				844865B22056839E0076B976 /* LeaderBoardPresenter.swift */,
-				8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */,
 				8421B7CA20BF8E7A006F46C0 /* LeaderBoardInteractor.swift */,
 				8421B7EB20BFD048006F46C0 /* LeaderBoardRouter.swift */,
 				8421B7DB20BFA6D5006F46C0 /* LeaderBoardModels.swift */,
 				8477A63020C51F7800D1F910 /* LeaderBoardWorker.swift */,
+				869BBBEB221CC00300581659 /* Tests */,
 			);
 			path = LeaderBoard;
 			sourceTree = "<group>";
@@ -250,6 +250,14 @@
 			path = golfTests;
 			sourceTree = "<group>";
 		};
+		869BBBEB221CC00300581659 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,12 +309,12 @@
 				TargetAttributes = {
 					84FFADB22056164600DB33DA = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					84FFADC62056164700DB33DA = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84FFADB22056164600DB33DA;
 					};
@@ -575,7 +583,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bethegame.golf";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -602,7 +610,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37eb9c40-c587-4141-9028-e3ea3268155c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bethegame.golf";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -626,7 +634,7 @@
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -651,7 +659,7 @@
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bethegame.golfTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/golf.app/golf";
 				VERSIONING_SYSTEM = "apple-generic";

@@ -73,7 +73,7 @@ class Course {
             let name = json["name"].string {
             let holes = json["holes"]
             var holeCourse:[Int:Holes] = [:]
-            if holes.error?.code == nil && !holes.isEmpty && holes.count > 0 {
+            if holes.error?.errorCode == nil && !holes.isEmpty && holes.count > 0 {
                 for (_, eachHole) in holes {
                     let hole = Holes(json: eachHole)
                     holeCourse[hole.number] = hole
@@ -103,13 +103,13 @@ class Event {
             
             let data = json["participants"]
             var particpants:[Int:[Int]] = [:]
-            if data.error?.code == nil && !data.isEmpty && data.count > 0 {
+            if data.error?.errorCode == nil && !data.isEmpty && data.count > 0 {
                 
                 for (_, eachParticipant) in data {
                     if let player_id = eachParticipant["player_id"].int {
                         let holes = eachParticipant["holes"]
                         var rounds:[Int] = []
-                        if holes.error?.code == nil, !holes.isEmpty && holes.count > 0 {
+                        if holes.error?.errorCode == nil, !holes.isEmpty && holes.count > 0 {
                             for (_, each) in holes {
                                 let round = each.int
                                 if round != nil {
