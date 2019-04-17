@@ -1,6 +1,6 @@
-//  SwiftyJSON.h
+//  ViewController.swift
 //
-//  Copyright (c) 2014 Pinglin Tang
+//  Copyright (c) 2014 - 2016 Pinglin Tang
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,16 +26,16 @@ import SwiftyJSON
 class ViewController: UITableViewController {
 
     var json: JSON = JSON.null
-    
+
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+	override func viewDidLoad() {
+		title = "SwiftyJSON(\(json.type))"
+	}
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch self.json.type {
-        case Type.array, Type.dictionary:
+        case .array, .dictionary:
             return self.json.count
         default:
             return 1
@@ -44,9 +44,9 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JSONCell", for: indexPath) as UITableViewCell
-            
-        let row = (indexPath as NSIndexPath).row
-        
+
+        let row = indexPath.row
+
         switch self.json.type {
         case .array:
             cell.textLabel?.text = "\(row)"
@@ -60,7 +60,7 @@ class ViewController: UITableViewController {
             cell.textLabel?.text = ""
             cell.detailTextLabel?.text = self.json.description
         }
-        
+
         return cell
     }
 
@@ -69,15 +69,10 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
 
         var nextController: UIViewController?
-        switch UIDevice.current.systemVersion.compare("8.0.0", options: NSString.CompareOptions.numeric) {
-        case .orderedSame, .orderedDescending:
-            nextController = (segue.destination as! UINavigationController).topViewController
-        case .orderedAscending:
-            nextController = segue.destination
-        }
-        
+        nextController = segue.destination
+
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            let row = (indexPath as NSIndexPath).row
+            let row = indexPath.row
             var nextJson: JSON = JSON.null
             switch self.json.type {
             case .array:
