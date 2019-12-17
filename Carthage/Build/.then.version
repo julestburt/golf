@@ -1,9 +1,10 @@
 {
-  "commitish" : "4.2.1",
+  "commitish" : "5.1.2",
   "iOS" : [
     {
-      "name" : "then",
-      "hash" : "e9c52092ae2f5afefa891743d49d9bcc76f81d53e5bce33b0e9fd040e19b7a9f"
+      "name" : "Then",
+      "hash" : "dcf1d7bcc7daa4c688152d5cfa123355e6a5da3df9960e45829572aae8ed297f",
+      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
     }
   ]
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import then
+@testable import Then
 
 class MemoryTests: XCTestCase {
     

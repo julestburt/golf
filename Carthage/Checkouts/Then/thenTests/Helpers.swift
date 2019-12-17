@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import then
+@testable import Then
 import Dispatch
 
 var globalCount = 0

@@ -49,11 +49,12 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
         EndPoint().getLeaderboard(eventID: chosenGame, completion: { result in
             switch result {
             case .Success(let data):
-                self.leaderBoard = []
-                for (_, eachEntryJSON) in data {
-                    let entry = Entries(json: eachEntryJSON)
-                    self.leaderBoard?.append(entry)
-                }
+//                self.leaderBoard = []
+                self.leaderBoard = data.compactMap { Entries(json: $0.1) }
+//                for (_, eachEntryJSON) in data {
+//                    let entry = Entries(json: eachEntryJSON)
+//                    self.leaderBoard?.append(entry)
+//                }
             case .Error(let error, let code, let message):
                 _ = "\(error):\(code):\(message)"
                 break
@@ -66,11 +67,14 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
         EndPoint().getPlayers(completion: { result in
             switch result {
             case .Success(let data):
-                self.playerList = [:]
-                for (_, eachEntryJSON) in data {
-                    let player = Players(json: eachEntryJSON)
-                    self.playerList?[player.ID] = player
-                }
+//                self.playerList = [:]
+                self.playerList = data.compactMap { Players(json: $0.1) }.reduce(into: [Int:Players](), { (result, player) in
+                    result[player.ID] = player
+                })
+//                for (_, eachEntryJSON) in data {
+//                    let player = Players(json: eachEntryJSON)
+//                    self.playerList?[player.ID] = player
+//                }
             case .Error(let error, let code, let message):
                 _ = "\(error):\(code):\(message)"
                 break
@@ -157,11 +161,14 @@ class LeaderBoardInteractor : LeaderBoardBusinessLogic, LeaderBoardDataStore {
         EndPoint().getPlayers(completion: { result in
             switch result {
             case .Success(let data):
-                self.playerList = [:]
-                for (_, eachEntryJSON) in data {
-                    let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
-                    self.playerList?[player.ID] = player
-                }
+//                self.playerList = [:]
+                self.playerList = data.compactMap { Players(json: $0.1) }.reduce(into: [Int:Players](), { (result, player) in
+                    result[player.ID] = player
+                })
+//                for (_, eachEntryJSON) in data {
+//                    let player = Players(json: eachEntryJSON)   //Entries(json: eachEntryJSON)
+//                    self.playerList?[player.ID] = player
+//                }
             case .Error(let error, let code, let message):
                 _ = "\(error):\(code):\(message)"
                 break

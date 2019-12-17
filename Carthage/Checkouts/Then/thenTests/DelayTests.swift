@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import then
+import Then
 
 class DelayTests: XCTestCase {
     
@@ -29,7 +29,7 @@ class DelayTests: XCTestCase {
     
     func testDelay() {
         let e = expectation(description: "")
-        var result: Int? = nil
+        var result: Int?
         Promise { resolve, _ in
             waitTime(0.1) {
                 resolve(123)
