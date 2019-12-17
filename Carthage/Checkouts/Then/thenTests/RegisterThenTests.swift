@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import then
+import Then
 
 class RegisterThenTests: XCTestCase {
 
@@ -143,7 +143,7 @@ class RegisterThenTests: XCTestCase {
             .then { _ in
                 timerExpectation.fulfill()
         }
-        waitForExpectations(timeout: 0.3, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
     
     func testRegisterThenMultipleThenOnlyCallOriginalPromiseOnce() {

@@ -68,21 +68,29 @@ class Course {
         self.holes = holes
     }
     
-    convenience init(json:JSON) {
-        if let id = json["id"].int,
-            let name = json["name"].string {
-            let holes = json["holes"]
-            var holeCourse:[Int:Holes] = [:]
-            if holes.error?.errorCode == nil && !holes.isEmpty && holes.count > 0 {
-                for (_, eachHole) in holes {
-                    let hole = Holes(json: eachHole)
-                    holeCourse[hole.number] = hole
-                }
-            }
+    convenience init?(json:JSON) {
+        guard let id = json["id"].int, let name = json["name"].string else { return nil }
+        let holes = json["holes"]
+        guard holes.error?.errorCode != nil && !holes.isEmpty && holes.count > 0 else { return nil }
+            let holeCourse = holes
+                .reduce([Int:Holes](), { current, eachHole in
+                    var current = current
+                    let hole = Holes(json:eachHole.1)
+                    current[hole.number] = hole
+                    return current
+                })
+            //                .map { let hole = Holes($1)
+            //                    holeCourse[$1.number] = hole}
+            //            for (_, eachHole) in holes {
+            //                let hole = Holes(json: eachHole)
+            //                holeCourse[hole.number] = hole
+            //            }
             self.init(id: id, name: name, holes: holeCourse)
-        } else {
-            self.init(id: -1, name: "err", holes: [:])
-        }
+//        }
+        //        } else {
+        //            self.init(id: -1, name: "err", holes: [:])
+        //        }
+        //    }
     }
 }
 

@@ -14,11 +14,10 @@ protocol LeaderBoardPresentationLogic {
 
 class LeaderBoardPresenter: LeaderBoardPresentationLogic {
 
-    var viewController: LeaderBoardDisplay?
+    var viewController: LeaderBoardDisplay!
 
     func showLeaderBoard(_ response:LeaderBoard.presentLeaderBoard.Response) {
-        let viewModel = createLeaderBoard(response)
-        viewController?.presentLeaderBoard(viewModel: viewModel)
+        response |> createLeaderBoard >>> viewController.presentLeaderBoard
     }
     
     func createLeaderBoard(_ response:LeaderBoard.presentLeaderBoard.Response) -> LeaderBoard.presentLeaderBoard.ViewModel {
@@ -60,11 +59,10 @@ class LeaderBoardPresenter: LeaderBoardPresentationLogic {
             
             // create Player Name to Display
             let playerName:String = {
-                if let player = response.players[eachEntry.player_id] {
-                    return player.firstName + " " + player.lastName
-                } else {
+                guard let player = response.players[eachEntry.player_id] else {
                     return "missing player - name?"
                 }
+                return player.firstName + " " + player.lastName
             }()
             
             // show running total

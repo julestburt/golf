@@ -41,6 +41,7 @@
 		84FFADBE2056164700DB33DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBD2056164700DB33DA /* Assets.xcassets */; };
 		84FFADC12056164700DB33DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FFADBF2056164700DB33DA /* LaunchScreen.storyboard */; };
 		84FFADD720564CA000DB33DA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFADD620564CA000DB33DA /* APIService.swift */; };
+		86F3D2E42302158E000D20E6 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3D2E32302158E000D20E6 /* Functional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		84FFADC72056164700DB33DA /* golfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = golfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FFADCD2056164700DB33DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FFADD620564CA000DB33DA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		86F3D2E32302158E000D20E6 /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		84FFADB52056164700DB33DA /* golf */ = {
 			isa = PBXGroup;
 			children = (
+				86F3D2E523021594000D20E6 /* Functional */,
 				844865B72056D6640076B976 /* Views */,
 				844865B52056D6340076B976 /* Storyboards */,
 				844865B82056D68B0076B976 /* Models */,
@@ -256,6 +259,14 @@
 				8436E94520632D7200DC4358 /* LeaderBoardPresenterTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		86F3D2E523021594000D20E6 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				86F3D2E32302158E000D20E6 /* Functional.swift */,
+			);
+			path = Functional;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				844865BA2056D6BF0076B976 /* GolfData.swift in Sources */,
 				8421B7CB20BF8E7A006F46C0 /* LeaderBoardInteractor.swift in Sources */,
 				8477A60920C0FBB200D1F910 /* ScoreCardModels.swift in Sources */,
+				86F3D2E42302158E000D20E6 /* Functional.swift in Sources */,
 				8421B7EF20BFD782006F46C0 /* ScoreCardRouter.swift in Sources */,
 				84C11940205670560003D0B6 /* EndPoint.swift in Sources */,
 				84FFADB72056164700DB33DA /* AppDelegate.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import then
+import Then
 
 class ProgressTests: XCTestCase {
 
